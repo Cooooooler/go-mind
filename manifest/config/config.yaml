@@ -1,0 +1,18 @@
+server:
+  address: ':8000'
+  openapiPath: '/api.json'
+  swaggerPath: '/swagger'
+
+database:
+  default:
+    link: 'mysql:root:@tcp(127.0.0.1:3306)/xmind'
+    debug: true
+
+logger:
+  level: 'all'
+  stdout: true
+
+cors:
+  allowOrigin: '*'
+  allowHeaders: '*'
+  allowMethods: '*'
