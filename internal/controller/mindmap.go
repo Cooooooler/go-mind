@@ -87,3 +87,25 @@ func (c *mindMapController) Delete(ctx context.Context, req *v1.DeleteReq) (res 
 	g.Log().Infof(ctx, "Controller层: 思维导图删除成功, ID: %s", req.ID)
 	return res, nil
 }
+
+// Update 更新思维导图
+func (c *mindMapController) Update(ctx context.Context, req *v1.UpdateReq) (res *v1.UpdateRes, err error) {
+	g.Log().Infof(ctx, "Controller层: 收到更新思维导图请求, ID: %s, 标题: %s", req.ID, req.Title)
+
+	res = &v1.UpdateRes{}
+
+	// 调用service更新思维导图
+	err = service.MindMap.Update(ctx, model.MindMapUpdateInput{
+		ID:    req.ID,
+		Title: req.Title,
+		Data:  req.Data,
+	})
+	if err != nil {
+		g.Log().Errorf(ctx, "Controller层: 更新思维导图失败, ID: %s, 错误: %v", req.ID, err)
+		return nil, err
+	}
+
+	res.Success = true
+	g.Log().Infof(ctx, "Controller层: 思维导图更新成功, ID: %s, 标题: %s", req.ID, req.Title)
+	return res, nil
+}

@@ -63,3 +63,17 @@ func (s *mindMapService) Delete(ctx context.Context, id string) error {
 	g.Log().Infof(ctx, "Service层: 思维导图删除成功, ID: %s", id)
 	return nil
 }
+
+// Update 更新思维导图
+func (s *mindMapService) Update(ctx context.Context, in model.MindMapUpdateInput) error {
+	g.Log().Infof(ctx, "Service层: 开始更新思维导图, ID: %s, 标题: %s", in.ID, in.Title)
+
+	err := dao.MindMap.Update(ctx, in)
+	if err != nil {
+		g.Log().Errorf(ctx, "Service层: 更新思维导图失败, ID: %s, 错误: %v", in.ID, err)
+		return err
+	}
+
+	g.Log().Infof(ctx, "Service层: 思维导图更新成功, ID: %s, 标题: %s", in.ID, in.Title)
+	return nil
+}

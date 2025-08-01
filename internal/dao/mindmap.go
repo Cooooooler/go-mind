@@ -4,6 +4,7 @@ import (
 	"context"
 	"fmt"
 	"go-mind/internal/model"
+	"time"
 
 	"github.com/gogf/gf/v2/frame/g"
 	"github.com/google/uuid"
@@ -122,5 +123,50 @@ func (dao *mindMapDao) Delete(ctx context.Context, id string) error {
 	}
 
 	g.Log().Infof(ctx, "思维导图删除成功, ID: %s, 影响行数: %d", id, affectedRows)
+	return nil
+}
+
+// Update 更新思维导图
+func (dao *mindMapDao) Update(ctx context.Context, in model.MindMapUpdateInput) error {
+	g.Log().Infof(ctx, "开始更新思维导图, ID: %s, 标题: %s", in.ID, in.Title)
+
+	// 先检查思维导图是否存在
+	count, err := g.DB().Model("mindmap").Where("id", in.ID).Count()
+	if err != nil {
+		g.Log().Errorf(ctx, "检查思维导图是否存在失败, ID: %s, 错误: %v", in.ID, err)
+		return err
+	}
+
+	if count == 0 {
+		g.Log().Warningf(ctx, "思维导图不存在, ID: %s", in.ID)
+		return fmt.Errorf("思维导图不存在")
+	}
+
+	// 更新思维导图
+	now := time.Now()
+	data := g.Map{
+		"title":      in.Title,
+		"data":       in.Data,
+		"updated_at": now,
+	}
+
+	result, err := g.DB().Model("mindmap").Data(data).Where("id", in.ID).Update()
+	if err != nil {
+		g.Log().Errorf(ctx, "更新思维导图失败, ID: %s, 错误: %v", in.ID, err)
+		return err
+	}
+
+	affectedRows, err := result.RowsAffected()
+	if err != nil {
+		g.Log().Errorf(ctx, "获取更新影响行数失败, ID: %s, 错误: %v", in.ID, err)
+		return err
+	}
+
+	if affectedRows == 0 {
+		g.Log().Warningf(ctx, "更新思维导图失败, 影响行数为0, ID: %s", in.ID)
+		return fmt.Errorf("更新失败")
+	}
+
+	g.Log().Infof(ctx, "思维导图更新成功, ID: %s, 标题: %s, 影响行数: %d", in.ID, in.Title, affectedRows)
 	return nil
 }

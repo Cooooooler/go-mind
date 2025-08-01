@@ -39,3 +39,10 @@ type MindMapGetListOutput struct {
 type MindMapDeleteInput struct {
 	ID string `json:"id" v:"required" dc:"思维导图UUID"`
 }
+
+// MindMapUpdateInput 更新思维导图输入
+type MindMapUpdateInput struct {
+	ID    string            `json:"id" v:"required" dc:"思维导图UUID"`
+	Title string            `json:"title" v:"required" dc:"标题"`
+	Data  v1.MindElixirData `json:"data" v:"required" dc:"思维导图数据"`
+}

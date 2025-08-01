@@ -39,6 +39,19 @@ type DeleteRes struct {
 	Success bool `json:"success" dc:"是否删除成功"`
 }
 
+// UpdateReq 更新思维导图请求
+type UpdateReq struct {
+	g.Meta `path:"/update" tags:"MindMap" method:"put" summary:"更新思维导图"`
+	ID     string         `json:"id" v:"required" dc:"思维导图UUID"`
+	Data   MindElixirData `json:"data" v:"required" dc:"思维导图数据"`
+	Title  string         `json:"title" v:"required" dc:"标题"`
+}
+
+// UpdateRes 更新思维导图响应
+type UpdateRes struct {
+	Success bool `json:"success" dc:"是否更新成功"`
+}
+
 // MindMapItem 思维导图项
 type MindMapItem struct {
 	ID        string         `json:"id" dc:"思维导图UUID"`

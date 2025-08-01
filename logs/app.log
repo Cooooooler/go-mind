@@ -96,3 +96,368 @@ Stack:
 2025-08-01T12:05:30.411+08:00 [DEBU] {68af96c6ec885718dc335c392e328926} [  2 ms] [default] [xmind] [rows:1  ] SELECT `id`,`title`,`data`,`created_at`,`updated_at` FROM `mindmap` ORDER BY `created_at` desc LIMIT 0,100
 2025-08-01T12:06:05.110+08:00 [DEBU] {c04b9fdaf4885718de335c3938b0ab23} [  5 ms] [default] [xmind] [rows:1  ] SELECT COUNT(1) FROM `mindmap`
 2025-08-01T12:06:05.112+08:00 [DEBU] {c011fcdaf4885718df335c393446e4f4} [  1 ms] [default] [xmind] [rows:1  ] SELECT `id`,`title`,`data`,`created_at`,`updated_at` FROM `mindmap` ORDER BY `created_at` desc LIMIT 0,100
+2025-08-01T12:10:05.020+08:00 [DEBU] {302178b62c895718e2335c3960cf0a4a} [  4 ms] [default] [xmind] [rows:1  ] SELECT COUNT(1) FROM `mindmap`
+2025-08-01T12:10:05.021+08:00 [DEBU] {40b6b9b62c895718e3335c39c171be97} [  0 ms] [default] [xmind] [rows:1  ] SELECT `id`,`title`,`data`,`created_at`,`updated_at` FROM `mindmap` ORDER BY `created_at` desc LIMIT 0,100
+2025-08-01T12:10:19.191+08:00 [DEBU] {48d1140330895718e5335c391be6a3ef} [  4 ms] [default] [xmind] [rows:1  ] INSERT INTO `mindmap`(`id`,`title`,`data`,`created_at`,`updated_at`) VALUES('2bf9c71f-19e5-4031-9472-deb6416b903f','11','{"nodeData":{"id":"root","topic":"11","children":[{"id":"8634536f576e750d","topic":"111","children":[{"id":"863454994feeadbf","topic":"222","children":[{"id":"8634552e554b509b","topic":"222"}]}]}]},"direction":0,"theme":{"name":"Dark","type":"dark","palette":["#848FA0","#748BE9","#D2F9FE","#4145A5","#789AFA","#706CF4","#EF987F","#775DD5","#FCEECF","#DA7FBC"],"cssVar":{"--bgcolor":"#252526","--color":"#cccccc","--main-bgcolor":"#4c4f69","--main-color":"#ffffff","--main-gap-x":"65px","--main-gap-y":"45px","--main-radius":"20px","--map-padding":"50px 80px","--node-gap-x":"30px","--node-gap-y":"10px","--panel-bgcolor":"#2d3748","--panel-border-color":"#696969","--panel-color":"#ffffff","--root-bgcolor":"#2d3748","--root-border-color":"rgba(255, 255, 255, 0.1)","--root-color":"#ffffff","--root-radius":"30px","--selected":"#4dc4ff","--topic-padding":"3px"}}}','2025-08-01 12:10:19','2025-08-01 12:10:19') 
+2025-08-01T12:10:20.453+08:00 [DEBU] {4839894e30895718e7335c39e3775ac3} [  0 ms] [default] [xmind] [rows:1  ] SELECT COUNT(1) FROM `mindmap`
+2025-08-01T12:10:20.454+08:00 [DEBU] {58ad914e30895718e8335c39d1914f93} [  1 ms] [default] [xmind] [rows:2  ] SELECT `id`,`title`,`data`,`created_at`,`updated_at` FROM `mindmap` ORDER BY `created_at` desc LIMIT 0,100
+2025-08-01T12:10:26.314+08:00 [DEBU] {3094d8ab31895718ea335c395daec94f} [  1 ms] [default] [xmind] [rows:1  ] SELECT COUNT(1) FROM `mindmap` WHERE `id`='185161f1-8a56-447a-a9cd-c79967981dc0'
+2025-08-01T12:10:26.316+08:00 [DEBU] {c8c1efab31895718eb335c39c2295d55} [  1 ms] [default] [xmind] [rows:1  ] DELETE FROM `mindmap` WHERE `id`='185161f1-8a56-447a-a9cd-c79967981dc0'
+2025-08-01T12:10:26.328+08:00 [DEBU] {58dcb7ac31895718ed335c395106a5a4} [  0 ms] [default] [xmind] [rows:1  ] SELECT COUNT(1) FROM `mindmap`
+2025-08-01T12:10:26.329+08:00 [DEBU] {5054c0ac31895718ee335c3913cfe2ef} [  1 ms] [default] [xmind] [rows:1  ] SELECT `id`,`title`,`data`,`created_at`,`updated_at` FROM `mindmap` ORDER BY `created_at` desc LIMIT 0,100
+2025-08-01T12:10:36.607+08:00 [DEBU] {48be421134895718f0335c3955ac0ce5} [  3 ms] [default] [xmind] [rows:1  ] SELECT COUNT(1) FROM `mindmap`
+2025-08-01T12:10:36.608+08:00 [DEBU] {183b6e1134895718f1335c399b392ec6} [  1 ms] [default] [xmind] [rows:1  ] SELECT `id`,`title`,`data`,`created_at`,`updated_at` FROM `mindmap` ORDER BY `created_at` desc LIMIT 0,100
+2025-08-01T14:05:40.856+08:00 [DEBU] {b83714907b8f5718f3335c399bd9d0b3} [111 ms] [default] [xmind] [rows:1  ] SELECT COUNT(1) FROM `mindmap`
+2025-08-01T14:05:40.863+08:00 [DEBU] {4857cc967b8f5718f4335c39dea8ca83} [  6 ms] [default] [xmind] [rows:1  ] SELECT `id`,`title`,`data`,`created_at`,`updated_at` FROM `mindmap` ORDER BY `created_at` desc LIMIT 0,100
+go file changes: "/Users/xiaoxin/create/vitereact/go-mind/api/hello/v1/hello.go": WRITE
+build: main.go
+go build -o ./main  main.go
+build error: 
+internal/controller/hello/hello.go:8:2: package go-mind/api/hello/v1 is not in std (/opt/homebrew/Cellar/go/1.24.5/libexec/src/go-mind/api/hello/v1)
+exit status 1
+go file changes: "/Users/xiaoxin/create/vitereact/go-mind/internal/controller/hello/hello.go": WRITE
+build: main.go
+go build -o ./main  main.go
+build error: 
+internal/cmd/cmd.go:11:2: package go-mind/internal/controller/hello is not in std (/opt/homebrew/Cellar/go/1.24.5/libexec/src/go-mind/internal/controller/hello)
+exit status 1
+go file changes: "/Users/xiaoxin/create/vitereact/go-mind/internal/cmd/cmd.go": CHMOD
+build: main.go
+go build -o ./main  main.go
+build error: 
+# go-mind/internal/cmd
+internal/cmd/cmd.go:23:6: undefined: hello
+exit status 1
+go file changes: "/Users/xiaoxin/create/vitereact/go-mind/internal/cmd/cmd.go": CHMOD
+build: main.go
+go build -o ./main  main.go
+build error: 
+# go-mind/internal/cmd
+internal/cmd/cmd.go:23:6: undefined: hello
+exit status 1
+go file changes: "/Users/xiaoxin/create/vitereact/go-mind/internal/cmd/cmd.go": CHMOD
+build: main.go
+go build -o ./main  main.go
+./main 
+build running pid: 9729
+2025-08-01T14:10:09.530+08:00 [INFO] pid[9729]: http server started listening on [:8000]
+2025-08-01T14:10:09.530+08:00 [INFO] {70e87749b68857187fcc35380c59a4e6} swagger ui is serving at address: http://127.0.0.1:8000/swagger/
+2025-08-01T14:10:09.530+08:00 [INFO] {70e87749b68857187fcc35380c59a4e6} openapi specification is serving at address: http://127.0.0.1:8000/api.json
+
+  ADDRESS | METHOD |        ROUTE        |                         HANDLER                          |           MIDDLEWARE             
+----------|--------|---------------------|----------------------------------------------------------|----------------------------------
+  :8000   | ALL    | /api.json           | github.com/gogf/gf/v2/net/ghttp.(*Server).openapiSpec    |                                  
+----------|--------|---------------------|----------------------------------------------------------|----------------------------------
+  :8000   | POST   | /api/mindmap/create | go-mind/internal/controller.(*mindMapController).Create  | ghttp.MiddlewareHandlerResponse  
+----------|--------|---------------------|----------------------------------------------------------|----------------------------------
+  :8000   | DELETE | /api/mindmap/delete | go-mind/internal/controller.(*mindMapController).Delete  | ghttp.MiddlewareHandlerResponse  
+----------|--------|---------------------|----------------------------------------------------------|----------------------------------
+  :8000   | GET    | /api/mindmap/list   | go-mind/internal/controller.(*mindMapController).GetList | ghttp.MiddlewareHandlerResponse  
+----------|--------|---------------------|----------------------------------------------------------|----------------------------------
+  :8000   | ALL    | /swagger/*          | github.com/gogf/gf/v2/net/ghttp.(*Server).swaggerUI      | HOOK_BEFORE_SERVE                
+----------|--------|---------------------|----------------------------------------------------------|----------------------------------
+
+go file changes: "/Users/xiaoxin/create/vitereact/go-mind/internal/cmd/cmd.go": WRITE
+build: main.go
+go build -o ./main  main.go
+./main 
+build running pid: 10910
+2025-08-01T14:11:29.127+08:00 [INFO] pid[10910]: http server started listening on [:8000]
+2025-08-01T14:11:29.127+08:00 [INFO] {70e87749b68857187fcc35380c59a4e6} swagger ui is serving at address: http://127.0.0.1:8000/swagger/
+2025-08-01T14:11:29.127+08:00 [INFO] {70e87749b68857187fcc35380c59a4e6} openapi specification is serving at address: http://127.0.0.1:8000/api.json
+
+  ADDRESS | METHOD |        ROUTE        |                         HANDLER                          |           MIDDLEWARE             
+----------|--------|---------------------|----------------------------------------------------------|----------------------------------
+  :8000   | ALL    | /api.json           | github.com/gogf/gf/v2/net/ghttp.(*Server).openapiSpec    |                                  
+----------|--------|---------------------|----------------------------------------------------------|----------------------------------
+  :8000   | POST   | /api/mindmap/create | go-mind/internal/controller.(*mindMapController).Create  | ghttp.MiddlewareHandlerResponse  
+----------|--------|---------------------|----------------------------------------------------------|----------------------------------
+  :8000   | DELETE | /api/mindmap/delete | go-mind/internal/controller.(*mindMapController).Delete  | ghttp.MiddlewareHandlerResponse  
+----------|--------|---------------------|----------------------------------------------------------|----------------------------------
+  :8000   | GET    | /api/mindmap/list   | go-mind/internal/controller.(*mindMapController).GetList | ghttp.MiddlewareHandlerResponse  
+----------|--------|---------------------|----------------------------------------------------------|----------------------------------
+  :8000   | ALL    | /swagger/*          | github.com/gogf/gf/v2/net/ghttp.(*Server).swaggerUI      | HOOK_BEFORE_SERVE                
+----------|--------|---------------------|----------------------------------------------------------|----------------------------------
+
+2025-08-01T15:43:44.021+08:00 [DEBU] {a0fac051d59457186c6adf12eafbb416} [217 ms] [default] [xmind] [rows:5  ] SHOW FULL COLUMNS FROM `mindmap`
+2025-08-01T15:43:44.025+08:00 [DEBU] {50feb95ed59457186d6adf12951ba257} [  3 ms] [default] [xmind] [rows:1  ] SELECT COUNT(1) FROM `mindmap`
+2025-08-01T15:43:44.032+08:00 [DEBU] {b0a4ef5ed59457186e6adf12b28836a9} [  7 ms] [default] [xmind] [rows:1  ] SHOW TABLES
+2025-08-01T15:43:44.037+08:00 [DEBU] {801e5a5fd59457186f6adf12c42e4119} [  5 ms] [default] [xmind] [rows:1  ] SELECT `id`,`title`,`data`,`created_at`,`updated_at` FROM `mindmap` ORDER BY `created_at` desc LIMIT 0,100
+2025-08-01T16:09:37.778+08:00 [DEBU] {90dbdd163f965718716adf122e262e9b} [184 ms] [default] [xmind] [rows:1  ] SELECT COUNT(1) FROM `mindmap`
+2025-08-01T16:09:37.784+08:00 [DEBU] {987de2213f965718726adf1208159f7f} [  5 ms] [default] [xmind] [rows:1  ] SELECT `id`,`title`,`data`,`created_at`,`updated_at` FROM `mindmap` ORDER BY `created_at` desc LIMIT 0,100
+2025-08-01T16:10:45.044+08:00 [DEBU] {8055fbc54e965718746adf121505d622} [ 87 ms] [default] [xmind] [rows:1  ] INSERT INTO `mindmap`(`id`,`title`,`data`,`created_at`,`updated_at`) VALUES('0ac357db-c350-41ba-bcd6-19aa75721400','测试思维导图','{"nodeData":{"id":"root","topic":"测试思维导图","children":[{"id":"8634536f576e750d","topic":"111","children":[{"id":"863454994feeadbf","topic":"222","children":[{"id":"8634552e554b509b","topic":"222"}]}]}]},"direction":0,"theme":{"name":"Dark","type":"dark","palette":["#848FA0","#748BE9","#D2F9FE","#4145A5","#789AFA","#706CF4","#EF987F","#775DD5","#FCEECF","#DA7FBC"],"cssVar":{"--bgcolor":"#252526","--color":"#cccccc","--main-bgcolor":"#4c4f69","--main-color":"#ffffff","--main-gap-x":"65px","--main-gap-y":"45px","--main-radius":"20px","--map-padding":"50px 80px","--node-gap-x":"30px","--node-gap-y":"10px","--panel-bgcolor":"#2d3748","--panel-border-color":"#696969","--panel-color":"#ffffff","--root-bgcolor":"#2d3748","--root-border-color":"rgba(255, 255, 255, 0.1)","--root-color":"#ffffff","--root-radius":"30px","--selected":"#4dc4ff","--topic-padding":"3px"}}}','2025-08-01 16:10:44','2025-08-01 16:10:44') 
+2025-08-01T16:10:54.681+08:00 [DEBU] {10df8c0951965718766adf12bff65e50} [  1 ms] [default] [xmind] [rows:1  ] SELECT COUNT(1) FROM `mindmap`
+2025-08-01T16:10:54.690+08:00 [DEBU] {2833a80951965718776adf1270ba5b34} [  8 ms] [default] [xmind] [rows:2  ] SELECT `id`,`title`,`data`,`created_at`,`updated_at` FROM `mindmap` ORDER BY `created_at` desc LIMIT 0,100
+go file changes: "/Users/xiaoxin/create/vitereact/go-mind/api/mindmap/v1/mindmap.go": CHMOD
+build: main.go
+go build -o ./main  main.go
+./main 
+build running pid: 68601
+2025-08-01T16:12:54.588+08:00 [INFO] pid[68601]: http server started listening on [:8000]
+2025-08-01T16:12:54.588+08:00 [INFO] {70e87749b68857187fcc35380c59a4e6} swagger ui is serving at address: http://127.0.0.1:8000/swagger/
+2025-08-01T16:12:54.588+08:00 [INFO] {70e87749b68857187fcc35380c59a4e6} openapi specification is serving at address: http://127.0.0.1:8000/api.json
+
+  ADDRESS | METHOD |        ROUTE        |                         HANDLER                          |           MIDDLEWARE             
+----------|--------|---------------------|----------------------------------------------------------|----------------------------------
+  :8000   | ALL    | /api.json           | github.com/gogf/gf/v2/net/ghttp.(*Server).openapiSpec    |                                  
+----------|--------|---------------------|----------------------------------------------------------|----------------------------------
+  :8000   | POST   | /api/mindmap/create | go-mind/internal/controller.(*mindMapController).Create  | ghttp.MiddlewareHandlerResponse  
+----------|--------|---------------------|----------------------------------------------------------|----------------------------------
+  :8000   | DELETE | /api/mindmap/delete | go-mind/internal/controller.(*mindMapController).Delete  | ghttp.MiddlewareHandlerResponse  
+----------|--------|---------------------|----------------------------------------------------------|----------------------------------
+  :8000   | GET    | /api/mindmap/list   | go-mind/internal/controller.(*mindMapController).GetList | ghttp.MiddlewareHandlerResponse  
+----------|--------|---------------------|----------------------------------------------------------|----------------------------------
+  :8000   | ALL    | /swagger/*          | github.com/gogf/gf/v2/net/ghttp.(*Server).swaggerUI      | HOOK_BEFORE_SERVE                
+----------|--------|---------------------|----------------------------------------------------------|----------------------------------
+
+go file changes: "/Users/xiaoxin/create/vitereact/go-mind/internal/model/mindmap.go": CHMOD
+build: main.go
+go build -o ./main  main.go
+./main 
+build running pid: 68720
+2025-08-01T16:13:06.266+08:00 [INFO] pid[68720]: http server started listening on [:8000]
+2025-08-01T16:13:06.266+08:00 [INFO] {70e87749b68857187fcc35380c59a4e6} swagger ui is serving at address: http://127.0.0.1:8000/swagger/
+2025-08-01T16:13:06.266+08:00 [INFO] {70e87749b68857187fcc35380c59a4e6} openapi specification is serving at address: http://127.0.0.1:8000/api.json
+
+  ADDRESS | METHOD |        ROUTE        |                         HANDLER                          |           MIDDLEWARE             
+----------|--------|---------------------|----------------------------------------------------------|----------------------------------
+  :8000   | ALL    | /api.json           | github.com/gogf/gf/v2/net/ghttp.(*Server).openapiSpec    |                                  
+----------|--------|---------------------|----------------------------------------------------------|----------------------------------
+  :8000   | POST   | /api/mindmap/create | go-mind/internal/controller.(*mindMapController).Create  | ghttp.MiddlewareHandlerResponse  
+----------|--------|---------------------|----------------------------------------------------------|----------------------------------
+  :8000   | DELETE | /api/mindmap/delete | go-mind/internal/controller.(*mindMapController).Delete  | ghttp.MiddlewareHandlerResponse  
+----------|--------|---------------------|----------------------------------------------------------|----------------------------------
+  :8000   | GET    | /api/mindmap/list   | go-mind/internal/controller.(*mindMapController).GetList | ghttp.MiddlewareHandlerResponse  
+----------|--------|---------------------|----------------------------------------------------------|----------------------------------
+  :8000   | ALL    | /swagger/*          | github.com/gogf/gf/v2/net/ghttp.(*Server).swaggerUI      | HOOK_BEFORE_SERVE                
+----------|--------|---------------------|----------------------------------------------------------|----------------------------------
+
+go file changes: "/Users/xiaoxin/create/vitereact/go-mind/internal/dao/mindmap.go": CHMOD
+build: main.go
+go build -o ./main  main.go
+build error: 
+# go-mind/internal/dao
+internal/dao/mindmap.go:148:19: undefined: g.Time
+exit status 1
+go file changes: "/Users/xiaoxin/create/vitereact/go-mind/internal/dao/mindmap.go": CHMOD
+build: main.go
+go build -o ./main  main.go
+build error: 
+# go-mind/internal/dao
+internal/dao/mindmap.go:148:19: undefined: g.Time
+exit status 1
+go file changes: "/Users/xiaoxin/create/vitereact/go-mind/internal/dao/mindmap.go": WRITE|CHMOD
+build: main.go
+go build -o ./main  main.go
+build error: 
+# go-mind/internal/dao
+internal/dao/mindmap.go:148:19: undefined: g.Time
+exit status 1
+go file changes: "/Users/xiaoxin/create/vitereact/go-mind/internal/dao/mindmap.go": CHMOD
+build: main.go
+go build -o ./main  main.go
+build error: 
+# go-mind/internal/dao
+internal/dao/mindmap.go:148:19: undefined: g.Time
+exit status 1
+go file changes: "/Users/xiaoxin/create/vitereact/go-mind/internal/dao/mindmap.go": CHMOD
+build: main.go
+go build -o ./main  main.go
+./main 
+build running pid: 69201
+2025-08-01T16:13:37.280+08:00 [INFO] pid[69201]: http server started listening on [:8000]
+2025-08-01T16:13:37.280+08:00 [INFO] {70e87749b68857187fcc35380c59a4e6} swagger ui is serving at address: http://127.0.0.1:8000/swagger/
+2025-08-01T16:13:37.280+08:00 [INFO] {70e87749b68857187fcc35380c59a4e6} openapi specification is serving at address: http://127.0.0.1:8000/api.json
+
+  ADDRESS | METHOD |        ROUTE        |                         HANDLER                          |           MIDDLEWARE             
+----------|--------|---------------------|----------------------------------------------------------|----------------------------------
+  :8000   | ALL    | /api.json           | github.com/gogf/gf/v2/net/ghttp.(*Server).openapiSpec    |                                  
+----------|--------|---------------------|----------------------------------------------------------|----------------------------------
+  :8000   | POST   | /api/mindmap/create | go-mind/internal/controller.(*mindMapController).Create  | ghttp.MiddlewareHandlerResponse  
+----------|--------|---------------------|----------------------------------------------------------|----------------------------------
+  :8000   | DELETE | /api/mindmap/delete | go-mind/internal/controller.(*mindMapController).Delete  | ghttp.MiddlewareHandlerResponse  
+----------|--------|---------------------|----------------------------------------------------------|----------------------------------
+  :8000   | GET    | /api/mindmap/list   | go-mind/internal/controller.(*mindMapController).GetList | ghttp.MiddlewareHandlerResponse  
+----------|--------|---------------------|----------------------------------------------------------|----------------------------------
+  :8000   | ALL    | /swagger/*          | github.com/gogf/gf/v2/net/ghttp.(*Server).swaggerUI      | HOOK_BEFORE_SERVE                
+----------|--------|---------------------|----------------------------------------------------------|----------------------------------
+
+go file changes: "/Users/xiaoxin/create/vitereact/go-mind/internal/service/mindmap.go": WRITE
+build: main.go
+go build -o ./main  main.go
+./main 
+build running pid: 69322
+2025-08-01T16:13:47.214+08:00 [INFO] pid[69322]: http server started listening on [:8000]
+2025-08-01T16:13:47.214+08:00 [INFO] {70e87749b68857187fcc35380c59a4e6} swagger ui is serving at address: http://127.0.0.1:8000/swagger/
+2025-08-01T16:13:47.215+08:00 [INFO] {70e87749b68857187fcc35380c59a4e6} openapi specification is serving at address: http://127.0.0.1:8000/api.json
+
+  ADDRESS | METHOD |        ROUTE        |                         HANDLER                          |           MIDDLEWARE             
+----------|--------|---------------------|----------------------------------------------------------|----------------------------------
+  :8000   | ALL    | /api.json           | github.com/gogf/gf/v2/net/ghttp.(*Server).openapiSpec    |                                  
+----------|--------|---------------------|----------------------------------------------------------|----------------------------------
+  :8000   | POST   | /api/mindmap/create | go-mind/internal/controller.(*mindMapController).Create  | ghttp.MiddlewareHandlerResponse  
+----------|--------|---------------------|----------------------------------------------------------|----------------------------------
+  :8000   | DELETE | /api/mindmap/delete | go-mind/internal/controller.(*mindMapController).Delete  | ghttp.MiddlewareHandlerResponse  
+----------|--------|---------------------|----------------------------------------------------------|----------------------------------
+  :8000   | GET    | /api/mindmap/list   | go-mind/internal/controller.(*mindMapController).GetList | ghttp.MiddlewareHandlerResponse  
+----------|--------|---------------------|----------------------------------------------------------|----------------------------------
+  :8000   | ALL    | /swagger/*          | github.com/gogf/gf/v2/net/ghttp.(*Server).swaggerUI      | HOOK_BEFORE_SERVE                
+----------|--------|---------------------|----------------------------------------------------------|----------------------------------
+
+go file changes: "/Users/xiaoxin/create/vitereact/go-mind/internal/controller/mindmap.go": WRITE
+build: main.go
+go build -o ./main  main.go
+./main 
+build running pid: 69443
+2025-08-01T16:13:57.061+08:00 [INFO] pid[69443]: http server started listening on [:8000]
+2025-08-01T16:13:57.061+08:00 [INFO] {70e87749b68857187fcc35380c59a4e6} swagger ui is serving at address: http://127.0.0.1:8000/swagger/
+2025-08-01T16:13:57.061+08:00 [INFO] {70e87749b68857187fcc35380c59a4e6} openapi specification is serving at address: http://127.0.0.1:8000/api.json
+
+  ADDRESS | METHOD |        ROUTE        |                         HANDLER                          |           MIDDLEWARE             
+----------|--------|---------------------|----------------------------------------------------------|----------------------------------
+  :8000   | ALL    | /api.json           | github.com/gogf/gf/v2/net/ghttp.(*Server).openapiSpec    |                                  
+----------|--------|---------------------|----------------------------------------------------------|----------------------------------
+  :8000   | POST   | /api/mindmap/create | go-mind/internal/controller.(*mindMapController).Create  | ghttp.MiddlewareHandlerResponse  
+----------|--------|---------------------|----------------------------------------------------------|----------------------------------
+  :8000   | DELETE | /api/mindmap/delete | go-mind/internal/controller.(*mindMapController).Delete  | ghttp.MiddlewareHandlerResponse  
+----------|--------|---------------------|----------------------------------------------------------|----------------------------------
+  :8000   | GET    | /api/mindmap/list   | go-mind/internal/controller.(*mindMapController).GetList | ghttp.MiddlewareHandlerResponse  
+----------|--------|---------------------|----------------------------------------------------------|----------------------------------
+  :8000   | PUT    | /api/mindmap/update | go-mind/internal/controller.(*mindMapController).Update  | ghttp.MiddlewareHandlerResponse  
+----------|--------|---------------------|----------------------------------------------------------|----------------------------------
+  :8000   | ALL    | /swagger/*          | github.com/gogf/gf/v2/net/ghttp.(*Server).swaggerUI      | HOOK_BEFORE_SERVE                
+----------|--------|---------------------|----------------------------------------------------------|----------------------------------
+
+go file changes: "/Users/xiaoxin/create/vitereact/go-mind/internal/dao/mindmap.go": CHMOD
+build: main.go
+go build -o ./main  main.go
+./main 
+build running pid: 69652
+2025-08-01T16:14:21.250+08:00 [INFO] pid[69652]: http server started listening on [:8000]
+2025-08-01T16:14:21.250+08:00 [INFO] {70e87749b68857187fcc35380c59a4e6} swagger ui is serving at address: http://127.0.0.1:8000/swagger/
+2025-08-01T16:14:21.250+08:00 [INFO] {70e87749b68857187fcc35380c59a4e6} openapi specification is serving at address: http://127.0.0.1:8000/api.json
+
+  ADDRESS | METHOD |        ROUTE        |                         HANDLER                          |           MIDDLEWARE             
+----------|--------|---------------------|----------------------------------------------------------|----------------------------------
+  :8000   | ALL    | /api.json           | github.com/gogf/gf/v2/net/ghttp.(*Server).openapiSpec    |                                  
+----------|--------|---------------------|----------------------------------------------------------|----------------------------------
+  :8000   | POST   | /api/mindmap/create | go-mind/internal/controller.(*mindMapController).Create  | ghttp.MiddlewareHandlerResponse  
+----------|--------|---------------------|----------------------------------------------------------|----------------------------------
+  :8000   | DELETE | /api/mindmap/delete | go-mind/internal/controller.(*mindMapController).Delete  | ghttp.MiddlewareHandlerResponse  
+----------|--------|---------------------|----------------------------------------------------------|----------------------------------
+  :8000   | GET    | /api/mindmap/list   | go-mind/internal/controller.(*mindMapController).GetList | ghttp.MiddlewareHandlerResponse  
+----------|--------|---------------------|----------------------------------------------------------|----------------------------------
+  :8000   | PUT    | /api/mindmap/update | go-mind/internal/controller.(*mindMapController).Update  | ghttp.MiddlewareHandlerResponse  
+----------|--------|---------------------|----------------------------------------------------------|----------------------------------
+  :8000   | ALL    | /swagger/*          | github.com/gogf/gf/v2/net/ghttp.(*Server).swaggerUI      | HOOK_BEFORE_SERVE                
+----------|--------|---------------------|----------------------------------------------------------|----------------------------------
+
+go file changes: "/Users/xiaoxin/create/vitereact/go-mind/internal/controller/mindmap.go": WRITE
+build: main.go
+go build -o ./main  main.go
+./main 
+build running pid: 72241
+2025-08-01T16:18:15.732+08:00 [INFO] pid[72241]: http server started listening on [:8000]
+2025-08-01T16:18:15.732+08:00 [INFO] {70e87749b68857187fcc35380c59a4e6} swagger ui is serving at address: http://127.0.0.1:8000/swagger/
+2025-08-01T16:18:15.732+08:00 [INFO] {70e87749b68857187fcc35380c59a4e6} openapi specification is serving at address: http://127.0.0.1:8000/api.json
+
+  ADDRESS | METHOD |        ROUTE        |                         HANDLER                          |           MIDDLEWARE             
+----------|--------|---------------------|----------------------------------------------------------|----------------------------------
+  :8000   | ALL    | /api.json           | github.com/gogf/gf/v2/net/ghttp.(*Server).openapiSpec    |                                  
+----------|--------|---------------------|----------------------------------------------------------|----------------------------------
+  :8000   | POST   | /api/mindmap/create | go-mind/internal/controller.(*mindMapController).Create  | ghttp.MiddlewareHandlerResponse  
+----------|--------|---------------------|----------------------------------------------------------|----------------------------------
+  :8000   | DELETE | /api/mindmap/delete | go-mind/internal/controller.(*mindMapController).Delete  | ghttp.MiddlewareHandlerResponse  
+----------|--------|---------------------|----------------------------------------------------------|----------------------------------
+  :8000   | GET    | /api/mindmap/list   | go-mind/internal/controller.(*mindMapController).GetList | ghttp.MiddlewareHandlerResponse  
+----------|--------|---------------------|----------------------------------------------------------|----------------------------------
+  :8000   | PUT    | /api/mindmap/update | go-mind/internal/controller.(*mindMapController).Update  | ghttp.MiddlewareHandlerResponse  
+----------|--------|---------------------|----------------------------------------------------------|----------------------------------
+  :8000   | ALL    | /swagger/*          | github.com/gogf/gf/v2/net/ghttp.(*Server).swaggerUI      | HOOK_BEFORE_SERVE                
+----------|--------|---------------------|----------------------------------------------------------|----------------------------------
+
+2025-08-01T16:18:30.243+08:00 [DEBU] {90495b13bb96571821ff5015e6e5e4a0} [132 ms] [default] [xmind] [rows:5  ] SHOW FULL COLUMNS FROM `mindmap`
+2025-08-01T16:18:30.246+08:00 [DEBU] {d8d13c1bbb96571822ff5015d94126a1} [  2 ms] [default] [xmind] [rows:1  ] SELECT COUNT(1) FROM `mindmap`
+2025-08-01T16:18:30.253+08:00 [DEBU] {a8c5691bbb96571823ff5015e29dda1f} [  6 ms] [default] [xmind] [rows:1  ] SHOW TABLES
+2025-08-01T16:18:30.253+08:00 [DEBU] {38ebc71bbb96571824ff5015308c41ca} [  0 ms] [default] [xmind] [rows:2  ] SELECT `id`,`title`,`data`,`created_at`,`updated_at` FROM `mindmap` ORDER BY `created_at` desc LIMIT 0,100
+2025-08-01T16:18:43.243+08:00 [DEBU] {b820f521be96571826ff5015799db1d7} [  2 ms] [default] [xmind] [rows:1  ] SELECT COUNT(1) FROM `mindmap` WHERE `id`='0ac357db-c350-41ba-bcd6-19aa75721400'
+2025-08-01T16:18:43.256+08:00 [DEBU] {08ee1d22be96571827ff5015e3366327} [ 12 ms] [default] [xmind] [rows:1  ] UPDATE `mindmap` SET `title`='444',`data`='{"nodeData":{"id":"root","topic":"444","children":[{"id":"8634536f576e750d","topic":"111","children":[{"id":"863454994feeadbf","topic":"222","children":[{"id":"8634552e554b509b","topic":"222"}]}]}]},"direction":0,"theme":{"name":"Dark","type":"dark","palette":["#848FA0","#748BE9","#D2F9FE","#4145A5","#789AFA","#706CF4","#EF987F","#775DD5","#FCEECF","#DA7FBC"],"cssVar":{"--bgcolor":"#252526","--color":"#cccccc","--main-bgcolor":"#4c4f69","--main-color":"#ffffff","--main-gap-x":"65px","--main-gap-y":"45px","--main-radius":"20px","--map-padding":"50px 80px","--node-gap-x":"30px","--node-gap-y":"10px","--panel-bgcolor":"#2d3748","--panel-border-color":"#696969","--panel-color":"#ffffff","--root-bgcolor":"#2d3748","--root-border-color":"rgba(255, 255, 255, 0.1)","--root-color":"#ffffff","--root-radius":"30px","--selected":"#4dc4ff","--topic-padding":"3px"}}}',`updated_at`='2025-08-01 16:18:43' WHERE `id`='0ac357db-c350-41ba-bcd6-19aa75721400'
+2025-08-01T16:18:48.134+08:00 [DEBU] {18f28f45bf96571829ff50151d931208} [  0 ms] [default] [xmind] [rows:1  ] SELECT COUNT(1) FROM `mindmap`
+2025-08-01T16:18:48.150+08:00 [DEBU] {f0869b45bf9657182aff501543453980} [ 16 ms] [default] [xmind] [rows:2  ] SELECT `id`,`title`,`data`,`created_at`,`updated_at` FROM `mindmap` ORDER BY `created_at` desc LIMIT 0,100
+2025-08-01T16:18:51.559+08:00 [DEBU] {e0b49211c09657182cff5015aa4ab4e0} [  3 ms] [default] [xmind] [rows:1  ] INSERT INTO `mindmap`(`id`,`title`,`data`,`created_at`,`updated_at`) VALUES('2767b03b-7abc-4437-ab38-abfb752f0428','444','{"nodeData":{"id":"root","topic":"444","children":[{"id":"8634536f576e750d","topic":"111","children":[{"id":"863454994feeadbf","topic":"222","children":[{"id":"8634552e554b509b","topic":"222"}]}]}]},"direction":0,"theme":{"name":"Dark","type":"dark","palette":["#848FA0","#748BE9","#D2F9FE","#4145A5","#789AFA","#706CF4","#EF987F","#775DD5","#FCEECF","#DA7FBC"],"cssVar":{"--bgcolor":"#252526","--color":"#cccccc","--main-bgcolor":"#4c4f69","--main-color":"#ffffff","--main-gap-x":"65px","--main-gap-y":"45px","--main-radius":"20px","--map-padding":"50px 80px","--node-gap-x":"30px","--node-gap-y":"10px","--panel-bgcolor":"#2d3748","--panel-border-color":"#696969","--panel-color":"#ffffff","--root-bgcolor":"#2d3748","--root-border-color":"rgba(255, 255, 255, 0.1)","--root-color":"#ffffff","--root-radius":"30px","--selected":"#4dc4ff","--topic-padding":"3px"}}}','2025-08-01 16:18:51','2025-08-01 16:18:51') 
+2025-08-01T16:18:53.139+08:00 [DEBU] {68cde36fc09657182eff5015a52c0eb6} [  0 ms] [default] [xmind] [rows:1  ] SELECT COUNT(1) FROM `mindmap`
+2025-08-01T16:18:53.140+08:00 [DEBU] {f885eb6fc09657182fff5015f7523375} [  1 ms] [default] [xmind] [rows:3  ] SELECT `id`,`title`,`data`,`created_at`,`updated_at` FROM `mindmap` ORDER BY `created_at` desc LIMIT 0,100
+2025-08-01T16:18:56.180+08:00 [DEBU] {e82e1a25c196571831ff50151d0bf302} [  1 ms] [default] [xmind] [rows:1  ] SELECT COUNT(1) FROM `mindmap` WHERE `id`='2767b03b-7abc-4437-ab38-abfb752f0428'
+2025-08-01T16:18:56.183+08:00 [DEBU] {d8533725c196571832ff5015c4b11e87} [  2 ms] [default] [xmind] [rows:1  ] DELETE FROM `mindmap` WHERE `id`='2767b03b-7abc-4437-ab38-abfb752f0428'
+2025-08-01T16:18:56.200+08:00 [DEBU] {b89e5626c196571834ff50153b341e52} [  0 ms] [default] [xmind] [rows:1  ] SELECT COUNT(1) FROM `mindmap`
+2025-08-01T16:18:56.201+08:00 [DEBU] {30376426c196571835ff50157a123873} [  0 ms] [default] [xmind] [rows:2  ] SELECT `id`,`title`,`data`,`created_at`,`updated_at` FROM `mindmap` ORDER BY `created_at` desc LIMIT 0,100
+2025-08-01T16:19:04.555+08:00 [DEBU] {c8d7e217c396571837ff50152c391647} [  8 ms] [default] [xmind] [rows:1  ] SELECT COUNT(1) FROM `mindmap`
+2025-08-01T16:19:04.556+08:00 [DEBU] {30676818c396571838ff5015ead7da36} [  0 ms] [default] [xmind] [rows:2  ] SELECT `id`,`title`,`data`,`created_at`,`updated_at` FROM `mindmap` ORDER BY `created_at` desc LIMIT 0,100
+2025-08-01T16:20:29.494+08:00 [DEBU] {f0f9faddd69657183aff5015ce11179d} [ 19 ms] [default] [xmind] [rows:1  ] SELECT COUNT(1) FROM `mindmap`
+2025-08-01T16:20:29.499+08:00 [DEBU] {e02326dfd69657183bff5015e7219287} [  4 ms] [default] [xmind] [rows:2  ] SELECT `id`,`title`,`data`,`created_at`,`updated_at` FROM `mindmap` ORDER BY `created_at` desc LIMIT 0,100
+2025-08-01T16:20:37.090+08:00 [DEBU] {7887d7a3d89657183dff5015e1a477f4} [  0 ms] [default] [xmind] [rows:1  ] SELECT COUNT(1) FROM `mindmap`
+2025-08-01T16:20:37.092+08:00 [DEBU] {40d1e8a3d89657183eff5015058f0e3f} [  1 ms] [default] [xmind] [rows:2  ] SELECT `id`,`title`,`data`,`created_at`,`updated_at` FROM `mindmap` ORDER BY `created_at` desc LIMIT 0,100
+2025-08-01T16:22:44.489+08:00 [DEBU] {00fed74af696571840ff5015ef122366} [ 44 ms] [default] [xmind] [rows:1  ] SELECT COUNT(1) FROM `mindmap`
+2025-08-01T16:22:44.491+08:00 [DEBU] {c0ca754df696571841ff5015cb9e4cc4} [  2 ms] [default] [xmind] [rows:2  ] SELECT `id`,`title`,`data`,`created_at`,`updated_at` FROM `mindmap` ORDER BY `created_at` desc LIMIT 0,100
+2025-08-01T16:22:48.026+08:00 [DEBU] {48a01c20f796571843ff501552e88e34} [  3 ms] [default] [xmind] [rows:1  ] SELECT COUNT(1) FROM `mindmap`
+2025-08-01T16:22:48.027+08:00 [DEBU] {d8564e20f796571844ff50155cbb1826} [  0 ms] [default] [xmind] [rows:2  ] SELECT `id`,`title`,`data`,`created_at`,`updated_at` FROM `mindmap` ORDER BY `created_at` desc LIMIT 0,100
+2025-08-01T16:22:57.222+08:00 [DEBU] {38b22b44f996571846ff50159cb9a6a2} [  4 ms] [default] [xmind] [rows:1  ] INSERT INTO `mindmap`(`id`,`title`,`data`,`created_at`,`updated_at`) VALUES('fa43fdac-19d7-4fc4-bc38-be95fb7fb2f5','测试','{"nodeData":{"id":"root","topic":"测试"},"direction":0,"theme":{"name":"Dark","type":"dark","palette":["#848FA0","#748BE9","#D2F9FE","#4145A5","#789AFA","#706CF4","#EF987F","#775DD5","#FCEECF","#DA7FBC"],"cssVar":{"--bgcolor":"#252526","--color":"#cccccc","--main-bgcolor":"#4c4f69","--main-color":"#ffffff","--main-gap-x":"65px","--main-gap-y":"45px","--main-radius":"20px","--map-padding":"50px 80px","--node-gap-x":"30px","--node-gap-y":"10px","--panel-bgcolor":"#2d3748","--panel-border-color":"#696969","--panel-color":"#ffffff","--root-bgcolor":"#2d3748","--root-border-color":"rgba(255, 255, 255, 0.1)","--root-color":"#ffffff","--root-radius":"30px","--selected":"#4dc4ff","--topic-padding":"3px"}}}','2025-08-01 16:22:57','2025-08-01 16:22:57') 
+2025-08-01T16:23:01.951+08:00 [DEBU] {3003365efa96571848ff5015b03d8cbb} [  1 ms] [default] [xmind] [rows:1  ] SELECT COUNT(1) FROM `mindmap`
+2025-08-01T16:23:01.951+08:00 [DEBU] {d04d415efa96571849ff50159c9b0ec3} [  0 ms] [default] [xmind] [rows:3  ] SELECT `id`,`title`,`data`,`created_at`,`updated_at` FROM `mindmap` ORDER BY `created_at` desc LIMIT 0,100
+2025-08-01T16:23:13.285+08:00 [DEBU] {f8c1bd01fd9657184bff501531563473} [  1 ms] [default] [xmind] [rows:1  ] SELECT COUNT(1) FROM `mindmap` WHERE `id`='fa43fdac-19d7-4fc4-bc38-be95fb7fb2f5'
+2025-08-01T16:23:13.288+08:00 [DEBU] {68d2d301fd9657184cff50155f0297d7} [  3 ms] [default] [xmind] [rows:1  ] UPDATE `mindmap` SET `title`='1111231323',`data`='{"nodeData":{"id":"root","topic":"1111231323"},"direction":0,"theme":{"name":"Dark","type":"dark","palette":["#848FA0","#748BE9","#D2F9FE","#4145A5","#789AFA","#706CF4","#EF987F","#775DD5","#FCEECF","#DA7FBC"],"cssVar":{"--bgcolor":"#252526","--color":"#cccccc","--main-bgcolor":"#4c4f69","--main-color":"#ffffff","--main-gap-x":"65px","--main-gap-y":"45px","--main-radius":"20px","--map-padding":"50px 80px","--node-gap-x":"30px","--node-gap-y":"10px","--panel-bgcolor":"#2d3748","--panel-border-color":"#696969","--panel-color":"#ffffff","--root-bgcolor":"#2d3748","--root-border-color":"rgba(255, 255, 255, 0.1)","--root-color":"#ffffff","--root-radius":"30px","--selected":"#4dc4ff","--topic-padding":"3px"}}}',`updated_at`='2025-08-01 16:23:13' WHERE `id`='fa43fdac-19d7-4fc4-bc38-be95fb7fb2f5'
+2025-08-01T16:23:14.881+08:00 [DEBU] {986aa35ffd9657184eff5015ccc2646d} [ 22 ms] [default] [xmind] [rows:1  ] SELECT COUNT(1) FROM `mindmap`
+2025-08-01T16:23:14.882+08:00 [DEBU] {2855f060fd9657184fff5015ad02e378} [  1 ms] [default] [xmind] [rows:3  ] SELECT `id`,`title`,`data`,`created_at`,`updated_at` FROM `mindmap` ORDER BY `created_at` desc LIMIT 0,100
+2025-08-01T16:23:21.116+08:00 [DEBU] {883987d4fe96571851ff5015d12dab00} [  1 ms] [default] [xmind] [rows:1  ] SELECT COUNT(1) FROM `mindmap` WHERE `id`='fa43fdac-19d7-4fc4-bc38-be95fb7fb2f5'
+2025-08-01T16:23:21.120+08:00 [DEBU] {08d0a2d4fe96571852ff50150a0d9764} [  3 ms] [default] [xmind] [rows:1  ] UPDATE `mindmap` SET `title`='1111231323',`data`='{"nodeData":{"id":"root","topic":"1111231323"},"direction":0,"theme":{"name":"Dark","type":"dark","palette":["#848FA0","#748BE9","#D2F9FE","#4145A5","#789AFA","#706CF4","#EF987F","#775DD5","#FCEECF","#DA7FBC"],"cssVar":{"--bgcolor":"#252526","--color":"#cccccc","--main-bgcolor":"#4c4f69","--main-color":"#ffffff","--main-gap-x":"65px","--main-gap-y":"45px","--main-radius":"20px","--map-padding":"50px 80px","--node-gap-x":"30px","--node-gap-y":"10px","--panel-bgcolor":"#2d3748","--panel-border-color":"#696969","--panel-color":"#ffffff","--root-bgcolor":"#2d3748","--root-border-color":"rgba(255, 255, 255, 0.1)","--root-color":"#ffffff","--root-radius":"30px","--selected":"#4dc4ff","--topic-padding":"3px"}}}',`updated_at`='2025-08-01 16:23:21' WHERE `id`='fa43fdac-19d7-4fc4-bc38-be95fb7fb2f5'
+2025-08-01T16:23:30.188+08:00 [DEBU] {b8883ef10097571854ff5015bd8f8968} [  1 ms] [default] [xmind] [rows:1  ] SELECT COUNT(1) FROM `mindmap` WHERE `id`='fa43fdac-19d7-4fc4-bc38-be95fb7fb2f5'
+2025-08-01T16:23:30.198+08:00 [DEBU] {c82555f10097571855ff50159af00925} [ 10 ms] [default] [xmind] [rows:1  ] UPDATE `mindmap` SET `title`='饿隔热特女',`data`='{"nodeData":{"id":"root","topic":"饿隔热特女"},"direction":0,"theme":{"name":"Dark","type":"dark","palette":["#848FA0","#748BE9","#D2F9FE","#4145A5","#789AFA","#706CF4","#EF987F","#775DD5","#FCEECF","#DA7FBC"],"cssVar":{"--bgcolor":"#252526","--color":"#cccccc","--main-bgcolor":"#4c4f69","--main-color":"#ffffff","--main-gap-x":"65px","--main-gap-y":"45px","--main-radius":"20px","--map-padding":"50px 80px","--node-gap-x":"30px","--node-gap-y":"10px","--panel-bgcolor":"#2d3748","--panel-border-color":"#696969","--panel-color":"#ffffff","--root-bgcolor":"#2d3748","--root-border-color":"rgba(255, 255, 255, 0.1)","--root-color":"#ffffff","--root-radius":"30px","--selected":"#4dc4ff","--topic-padding":"3px"}}}',`updated_at`='2025-08-01 16:23:30' WHERE `id`='fa43fdac-19d7-4fc4-bc38-be95fb7fb2f5'
+2025-08-01T16:23:31.202+08:00 [DEBU] {9876c02d0197571857ff5015a8b598a4} [  0 ms] [default] [xmind] [rows:1  ] SELECT COUNT(1) FROM `mindmap`
+2025-08-01T16:23:31.204+08:00 [DEBU] {1873cb2d0197571858ff501580bae1c5} [  1 ms] [default] [xmind] [rows:3  ] SELECT `id`,`title`,`data`,`created_at`,`updated_at` FROM `mindmap` ORDER BY `created_at` desc LIMIT 0,100
+2025-08-01T16:23:39.536+08:00 [DEBU] {78c3501e039757185aff50150cafe0a6} [  3 ms] [default] [xmind] [rows:1  ] INSERT INTO `mindmap`(`id`,`title`,`data`,`created_at`,`updated_at`) VALUES('56fb633a-0cf6-4050-9a8f-b0253e5aa2d4','饿隔热8798979特女','{"nodeData":{"id":"root","topic":"饿隔热8798979特女"},"direction":0,"theme":{"name":"Dark","type":"dark","palette":["#848FA0","#748BE9","#D2F9FE","#4145A5","#789AFA","#706CF4","#EF987F","#775DD5","#FCEECF","#DA7FBC"],"cssVar":{"--bgcolor":"#252526","--color":"#cccccc","--main-bgcolor":"#4c4f69","--main-color":"#ffffff","--main-gap-x":"65px","--main-gap-y":"45px","--main-radius":"20px","--map-padding":"50px 80px","--node-gap-x":"30px","--node-gap-y":"10px","--panel-bgcolor":"#2d3748","--panel-border-color":"#696969","--panel-color":"#ffffff","--root-bgcolor":"#2d3748","--root-border-color":"rgba(255, 255, 255, 0.1)","--root-color":"#ffffff","--root-radius":"30px","--selected":"#4dc4ff","--topic-padding":"3px"}}}','2025-08-01 16:23:39','2025-08-01 16:23:39') 
+2025-08-01T16:23:40.336+08:00 [DEBU] {98c4224e039757185cff5015d79835a0} [  1 ms] [default] [xmind] [rows:1  ] SELECT COUNT(1) FROM `mindmap`
+2025-08-01T16:23:40.336+08:00 [DEBU] {a8382b4e039757185dff501525ef50df} [  0 ms] [default] [xmind] [rows:4  ] SELECT `id`,`title`,`data`,`created_at`,`updated_at` FROM `mindmap` ORDER BY `created_at` desc LIMIT 0,100
+2025-08-01T16:24:37.739+08:00 [DEBU] {f06cb3aa109757185fff501520d8f937} [ 16 ms] [default] [xmind] [rows:1  ] SELECT COUNT(1) FROM `mindmap`
+2025-08-01T16:24:37.741+08:00 [DEBU] {60e3b2ab1097571860ff5015b3fb6d45} [  2 ms] [default] [xmind] [rows:4  ] SELECT `id`,`title`,`data`,`created_at`,`updated_at` FROM `mindmap` ORDER BY `created_at` desc LIMIT 0,100
+2025-08-01T16:29:12.491+08:00 [DEBU] {702147a25097571862ff5015bcf443e7} [ 32 ms] [default] [xmind] [rows:1  ] SELECT COUNT(1) FROM `mindmap`
+2025-08-01T16:29:12.495+08:00 [DEBU] {603032a45097571863ff5015a7a61722} [  3 ms] [default] [xmind] [rows:4  ] SELECT `id`,`title`,`data`,`created_at`,`updated_at` FROM `mindmap` ORDER BY `created_at` desc LIMIT 0,100
+2025-08-01T16:29:25.445+08:00 [DEBU] {08c737a85397571865ff5015dbf1a7dd} [  1 ms] [default] [xmind] [rows:1  ] SELECT COUNT(1) FROM `mindmap`
+2025-08-01T16:29:25.448+08:00 [DEBU] {d0ce53a85397571866ff5015bbaf90b7} [  2 ms] [default] [xmind] [rows:4  ] SELECT `id`,`title`,`data`,`created_at`,`updated_at` FROM `mindmap` ORDER BY `created_at` desc LIMIT 0,100
+2025-08-01T16:29:30.303+08:00 [DEBU] {5807c6c95497571868ff5015df91f6fd} [  1 ms] [default] [xmind] [rows:1  ] SELECT COUNT(1) FROM `mindmap` WHERE `id`='56fb633a-0cf6-4050-9a8f-b0253e5aa2d4'
+2025-08-01T16:29:30.314+08:00 [DEBU] {28b5d4c95497571869ff50156a5d84c5} [ 11 ms] [default] [xmind] [rows:1  ] DELETE FROM `mindmap` WHERE `id`='56fb633a-0cf6-4050-9a8f-b0253e5aa2d4'
+2025-08-01T16:29:30.326+08:00 [DEBU] {98032ecb549757186bff50151e23e148} [  1 ms] [default] [xmind] [rows:1  ] SELECT COUNT(1) FROM `mindmap`
+2025-08-01T16:29:30.327+08:00 [DEBU] {38b93ccb549757186cff5015e6f95d9e} [  1 ms] [default] [xmind] [rows:3  ] SELECT `id`,`title`,`data`,`created_at`,`updated_at` FROM `mindmap` ORDER BY `created_at` desc LIMIT 0,100
+2025-08-01T16:29:32.877+08:00 [DEBU] {c00d2263559757186eff50151c65e47c} [  2 ms] [default] [xmind] [rows:1  ] SELECT COUNT(1) FROM `mindmap` WHERE `id`='fa43fdac-19d7-4fc4-bc38-be95fb7fb2f5'
+2025-08-01T16:29:32.880+08:00 [DEBU] {b05b4d63559757186fff50150a942cde} [  2 ms] [default] [xmind] [rows:1  ] DELETE FROM `mindmap` WHERE `id`='fa43fdac-19d7-4fc4-bc38-be95fb7fb2f5'
+2025-08-01T16:29:32.890+08:00 [DEBU] {48caeb635597571871ff5015e0db8d39} [  2 ms] [default] [xmind] [rows:1  ] SELECT COUNT(1) FROM `mindmap`
+2025-08-01T16:29:32.893+08:00 [DEBU] {08d223645597571872ff5015da3237db} [  1 ms] [default] [xmind] [rows:2  ] SELECT `id`,`title`,`data`,`created_at`,`updated_at` FROM `mindmap` ORDER BY `created_at` desc LIMIT 0,100
+2025-08-01T16:29:44.362+08:00 [DEBU] {78ae330f5897571874ff50155f49b371} [ 10 ms] [default] [xmind] [rows:1  ] SELECT COUNT(1) FROM `mindmap` WHERE `id`='0ac357db-c350-41ba-bcd6-19aa75721400'
+2025-08-01T16:29:44.374+08:00 [DEBU] {6896ec0f5897571875ff50159a2e4f33} [ 10 ms] [default] [xmind] [rows:1  ] UPDATE `mindmap` SET `title`='444',`data`='{"nodeData":{"id":"root","topic":"444","children":[{"id":"8634536f576e750d","topic":"111","children":[{"id":"863454994feeadbf","topic":"222","children":[{"id":"8634552e554b509b","topic":"222"}]}]}]},"direction":0,"theme":{"name":"Dark","type":"dark","palette":["#848FA0","#748BE9","#D2F9FE","#4145A5","#789AFA","#706CF4","#EF987F","#775DD5","#FCEECF","#DA7FBC"],"cssVar":{"--bgcolor":"#252526","--color":"#cccccc","--main-bgcolor":"#4c4f69","--main-color":"#ffffff","--main-gap-x":"65px","--main-gap-y":"45px","--main-radius":"20px","--map-padding":"50px 80px","--node-gap-x":"30px","--node-gap-y":"10px","--panel-bgcolor":"#2d3748","--panel-border-color":"#696969","--panel-color":"#ffffff","--root-bgcolor":"#2d3748","--root-border-color":"rgba(255, 255, 255, 0.1)","--root-color":"#ffffff","--root-radius":"30px","--selected":"#4dc4ff","--topic-padding":"3px"}}}',`updated_at`='2025-08-01 16:29:44' WHERE `id`='0ac357db-c350-41ba-bcd6-19aa75721400'
+2025-08-01T16:29:46.224+08:00 [DEBU] {904ec07e5897571877ff5015ae2e3171} [  1 ms] [default] [xmind] [rows:1  ] SELECT COUNT(1) FROM `mindmap` WHERE `id`='0ac357db-c350-41ba-bcd6-19aa75721400'
+2025-08-01T16:29:46.226+08:00 [DEBU] {18c6d97e5897571878ff50159e296ccf} [  1 ms] [default] [xmind] [rows:1  ] UPDATE `mindmap` SET `title`='444',`data`='{"nodeData":{"id":"root","topic":"444","children":[{"id":"8634536f576e750d","topic":"111","children":[{"id":"863454994feeadbf","topic":"222","children":[{"id":"8634552e554b509b","topic":"222"}]}]}]},"direction":0,"theme":{"name":"Dark","type":"dark","palette":["#848FA0","#748BE9","#D2F9FE","#4145A5","#789AFA","#706CF4","#EF987F","#775DD5","#FCEECF","#DA7FBC"],"cssVar":{"--bgcolor":"#252526","--color":"#cccccc","--main-bgcolor":"#4c4f69","--main-color":"#ffffff","--main-gap-x":"65px","--main-gap-y":"45px","--main-radius":"20px","--map-padding":"50px 80px","--node-gap-x":"30px","--node-gap-y":"10px","--panel-bgcolor":"#2d3748","--panel-border-color":"#696969","--panel-color":"#ffffff","--root-bgcolor":"#2d3748","--root-border-color":"rgba(255, 255, 255, 0.1)","--root-color":"#ffffff","--root-radius":"30px","--selected":"#4dc4ff","--topic-padding":"3px"}}}',`updated_at`='2025-08-01 16:29:46' WHERE `id`='0ac357db-c350-41ba-bcd6-19aa75721400'
+2025-08-01T16:35:44.966+08:00 [DEBU] {2072a104ac9757187aff50159ae3d4a3} [ 14 ms] [default] [xmind] [rows:1  ] SELECT COUNT(1) FROM `mindmap`
+2025-08-01T16:35:44.970+08:00 [DEBU] {28a78b05ac9757187bff5015aafe444a} [  3 ms] [default] [xmind] [rows:2  ] SELECT `id`,`title`,`data`,`created_at`,`updated_at` FROM `mindmap` ORDER BY `created_at` desc LIMIT 0,100
+2025-08-01T16:35:48.705+08:00 [DEBU] {388554e4ac9757187dff50152bd9c953} [  0 ms] [default] [xmind] [rows:1  ] SELECT COUNT(1) FROM `mindmap`
+2025-08-01T16:35:48.706+08:00 [DEBU] {50c85de4ac9757187eff50158968e586} [  1 ms] [default] [xmind] [rows:2  ] SELECT `id`,`title`,`data`,`created_at`,`updated_at` FROM `mindmap` ORDER BY `created_at` desc LIMIT 0,100
+2025-08-01T16:36:13.141+08:00 [DEBU] {507ccb94b297571880ff5015898814c3} [  1 ms] [default] [xmind] [rows:1  ] SELECT COUNT(1) FROM `mindmap`
+2025-08-01T16:36:13.143+08:00 [DEBU] {308ce594b297571881ff50159ec7749f} [  1 ms] [default] [xmind] [rows:2  ] SELECT `id`,`title`,`data`,`created_at`,`updated_at` FROM `mindmap` ORDER BY `created_at` desc LIMIT 0,100
+2025-08-01T16:36:15.894+08:00 [DEBU] {0037c638b397571883ff501515e5157e} [  3 ms] [default] [xmind] [rows:1  ] SELECT COUNT(1) FROM `mindmap`
+2025-08-01T16:36:15.895+08:00 [DEBU] {00acf138b397571884ff50154d7d4d93} [  1 ms] [default] [xmind] [rows:2  ] SELECT `id`,`title`,`data`,`created_at`,`updated_at` FROM `mindmap` ORDER BY `created_at` desc LIMIT 0,100
+2025-08-01T16:37:44.828+08:00 [DEBU] {38ddd8ecc797571886ff50152c881787} [ 16 ms] [default] [xmind] [rows:1  ] SELECT COUNT(1) FROM `mindmap`
+2025-08-01T16:37:44.830+08:00 [DEBU] {10e9dfedc797571887ff5015b60a33d4} [  1 ms] [default] [xmind] [rows:2  ] SELECT `id`,`title`,`data`,`created_at`,`updated_at` FROM `mindmap` ORDER BY `created_at` desc LIMIT 0,100
+2025-08-01T16:37:57.704+08:00 [DEBU] {704c4cedca97571889ff5015106181d7} [  0 ms] [default] [xmind] [rows:1  ] SELECT COUNT(1) FROM `mindmap`
+2025-08-01T16:37:57.705+08:00 [DEBU] {b8f857edca9757188aff5015a864f9b4} [  0 ms] [default] [xmind] [rows:2  ] SELECT `id`,`title`,`data`,`created_at`,`updated_at` FROM `mindmap` ORDER BY `created_at` desc LIMIT 0,100
+2025-08-01T16:38:42.315+08:00 [DEBU] {f8435b4fd59757188cff50158205e3ab} [ 16 ms] [default] [xmind] [rows:1  ] SELECT COUNT(1) FROM `mindmap`
+2025-08-01T16:38:42.318+08:00 [DEBU] {90425f50d59757188dff5015173bf156} [  1 ms] [default] [xmind] [rows:2  ] SELECT `id`,`title`,`data`,`created_at`,`updated_at` FROM `mindmap` ORDER BY `created_at` desc LIMIT 0,100
+2025-08-01T16:38:48.239+08:00 [DEBU] {d81f55b1d69757188fff5015181bf40c} [  1 ms] [default] [xmind] [rows:1  ] SELECT COUNT(1) FROM `mindmap`
+2025-08-01T16:38:48.240+08:00 [DEBU] {f0856db1d697571890ff50159ca10756} [  1 ms] [default] [xmind] [rows:2  ] SELECT `id`,`title`,`data`,`created_at`,`updated_at` FROM `mindmap` ORDER BY `created_at` desc LIMIT 0,100
+2025-08-01T16:39:31.189+08:00 [DEBU] {a83538b1e097571892ff5015ef4a3758} [  4 ms] [default] [xmind] [rows:1  ] SELECT COUNT(1) FROM `mindmap` WHERE `id`='0ac357db-c350-41ba-bcd6-19aa75721400'
+2025-08-01T16:39:31.193+08:00 [DEBU] {d07372b1e097571893ff5015803386c6} [  4 ms] [default] [xmind] [rows:1  ] DELETE FROM `mindmap` WHERE `id`='0ac357db-c350-41ba-bcd6-19aa75721400'
+2025-08-01T16:39:31.209+08:00 [DEBU] {78df94b2e097571895ff5015ee7a42d0} [  1 ms] [default] [xmind] [rows:1  ] SELECT COUNT(1) FROM `mindmap`
+2025-08-01T16:39:31.209+08:00 [DEBU] {50039eb2e097571896ff501573abe696} [  0 ms] [default] [xmind] [rows:1  ] SELECT `id`,`title`,`data`,`created_at`,`updated_at` FROM `mindmap` ORDER BY `created_at` desc LIMIT 0,100
+2025-08-01T16:39:32.475+08:00 [DEBU] {289c04fee097571898ff5015c53bb3ae} [  1 ms] [default] [xmind] [rows:1  ] SELECT COUNT(1) FROM `mindmap` WHERE `id`='2bf9c71f-19e5-4031-9472-deb6416b903f'
+2025-08-01T16:39:32.476+08:00 [DEBU] {10cf11fee097571899ff5015f076d75a} [  1 ms] [default] [xmind] [rows:1  ] DELETE FROM `mindmap` WHERE `id`='2bf9c71f-19e5-4031-9472-deb6416b903f'
+2025-08-01T16:39:32.482+08:00 [DEBU] {209275fee09757189bff5015b2abd709} [  1 ms] [default] [xmind] [rows:1  ] SELECT COUNT(1) FROM `mindmap`
+2025-08-01T16:39:38.927+08:00 [DEBU] {70784f7ee29757189dff5015a514cb14} [  6 ms] [default] [xmind] [rows:1  ] SELECT COUNT(1) FROM `mindmap`
+2025-08-01T16:40:48.762+08:00 [DEBU] {08871fc0f29757189fff501514ae6b3c} [ 17 ms] [default] [xmind] [rows:1  ] SELECT COUNT(1) FROM `mindmap`
+2025-08-01T16:40:57.591+08:00 [DEBU] {48dd59cff4975718a1ff50153a6525f7} [  1 ms] [default] [xmind] [rows:1  ] SELECT COUNT(1) FROM `mindmap`
