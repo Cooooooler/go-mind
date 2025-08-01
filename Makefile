@@ -1,82 +1,71 @@
-ROOT_DIR    = $(shell pwd)
-NAMESPACE   = "default"
-DEPLOY_NAME = "template-single"
-DOCKER_NAME = "template-single"
+# Go-Mind Makefile
+# 提供便捷的开发和管理命令
 
-# Install/Update to the latest CLI tool.
-.PHONY: cli
-cli:
-	@set -e; \
-	wget -O gf https://github.com/gogf/gf/releases/latest/download/gf_$(shell go env GOOS)_$(shell go env GOARCH) && \
-	chmod +x gf && \
-	./gf install -y && \
-	rm ./gf
+.PHONY: help build run start stop restart graceful status logs clean test
 
+# 默认目标
+help:
+	@echo "Go-Mind 管理命令:"
+	@echo ""
+	@echo "开发命令:"
+	@echo "  make run        - 直接运行应用 (go run main.go)"
+	@echo "  make build      - 编译应用"
+	@echo "  make test       - 运行测试"
+	@echo ""
+	@echo "服务管理:"
+	@echo "  make start      - 启动服务 (后台运行)"
+	@echo "  make stop       - 停止服务"
+	@echo "  make restart    - 重启服务"
+	@echo "  make graceful   - 平滑重启服务"
+	@echo "  make status     - 查看服务状态"
+	@echo "  make logs       - 查看服务日志"
+	@echo ""
+	@echo "其他命令:"
+	@echo "  make clean      - 清理编译文件"
+	@echo "  make help       - 显示此帮助信息"
 
-# Check and install CLI tool.
-.PHONY: cli.install
-cli.install:
-	@set -e; \
-	gf -v > /dev/null 2>&1 || if [[ "$?" -ne "0" ]]; then \
-  		echo "GoFame CLI is not installed, start proceeding auto installation..."; \
-		make cli; \
-	fi;
+# 开发命令
+run:
+	@echo "启动 Go-Mind 应用..."
+	go run main.go
 
+build:
+	@echo "编译 Go-Mind 应用..."
+	go build -o go-mind main.go
+	@echo "编译完成: ./go-mind"
 
-# Generate Go files for DAO/DO/Entity.
-.PHONY: dao
-dao: cli.install
-	@gf gen dao
+test:
+	@echo "运行测试..."
+	go test ./...
 
-# Generate Go files for Service.
-.PHONY: service
-service: cli.install
-	@gf gen service
-
-# Build image, deploy image and yaml to current kubectl environment and make port forward to local machine.
-.PHONY: start
+# 服务管理命令
 start:
-	@set -e; \
-	make image; \
-	make deploy; \
-	make port;
+	@echo "启动 Go-Mind 服务..."
+	./restart.sh start
 
-# Build docker image.
-.PHONY: image
-image: cli.install
-	$(eval _TAG  = $(shell git log -1 --format="%cd.%h" --date=format:"%Y%m%d%H%M%S"))
-ifneq (, $(shell git status --porcelain 2>/dev/null))
-	$(eval _TAG  = $(_TAG).dirty)
-endif
-	$(eval _TAG  = $(if ${TAG},  ${TAG}, $(_TAG)))
-	$(eval _PUSH = $(if ${PUSH}, ${PUSH}, ))
-	@gf docker -p -b "-a amd64 -s linux -p temp" -tn $(DOCKER_NAME):${_TAG};
+stop:
+	@echo "停止 Go-Mind 服务..."
+	./restart.sh stop
 
+restart:
+	@echo "重启 Go-Mind 服务..."
+	./restart.sh restart
 
-# Build docker image and automatically push to docker repo.
-.PHONY: image.push
-image.push:
-	@make image PUSH=-p;
+graceful:
+	@echo "平滑重启 Go-Mind 服务..."
+	./restart.sh graceful
 
+status:
+	@echo "查看 Go-Mind 服务状态..."
+	./restart.sh status
 
-# Deploy image and yaml to current kubectl environment.
-.PHONY: deploy
-deploy:
-	$(eval _TAG = $(if ${TAG},  ${TAG}, develop))
+logs:
+	@echo "查看 Go-Mind 服务日志..."
+	./restart.sh logs
 
-	@set -e; \
-	mkdir -p $(ROOT_DIR)/temp/kustomize;\
-	cd $(ROOT_DIR)/manifest/deploy/kustomize/overlays/${_TAG};\
-	kustomize build > $(ROOT_DIR)/temp/kustomize.yaml;\
-	kubectl   apply -f $(ROOT_DIR)/temp/kustomize.yaml; \
-	kubectl   patch -n $(NAMESPACE) deployment/$(DEPLOY_NAME) -p "{\"spec\":{\"template\":{\"metadata\":{\"labels\":{\"date\":\"$(shell date +%s)\"}}}}}";
-
-# Parsing protobuf files and generating go files.
-.PHONY: pb
-pb: cli.install
-	@gf gen pb
-
-# Generate protobuf files for database tables.
-.PHONY: pbentity
-pbentity: cli.install
-	@gf gen pbentity
+# 清理命令
+clean:
+	@echo "清理编译文件..."
+	rm -f go-mind
+	rm -f go-mind.pid
+	@echo "清理完成"

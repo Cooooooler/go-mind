@@ -9,8 +9,31 @@ database:
     debug: true
 
 logger:
-  level: 'all'
-  stdout: true
+  path: './logs' # 日志文件路径，使用项目相对路径
+  file: 'go-mind-{Y-m-d}.log' # 日志文件格式，包含项目名称
+  prefix: '' # 日志内容输出前缀。默认为空
+  level: 'all' # 日志输出级别
+  timeFormat: '2006-01-02T15:04:05' # 自定义日志输出的时间格式
+  ctxKeys: ['TraceId', 'UserId'] # 自定义Context上下文变量名称
+  header: true # 是否打印日志的头信息。默认true
+  stdout: false # 日志是否同时输出到终端。默认true
+  rotateSize: '100MB' # 按照日志文件大小对文件进行滚动切分
+  rotateExpire: '7d' # 按照日志文件时间间隔对文件滚动切分
+  rotateBackupLimit: 10 # 按照切分的文件数量清理切分文件
+  rotateBackupExpire: '30d' # 按照切分的文件有效期清理切分文件
+  rotateBackupCompress: 9 # 滚动切分文件的压缩比（0-9）
+  rotateCheckInterval: '1h' # 滚动切分的时间检测间隔
+  stdoutColorDisabled: true # 关闭终端的颜色打印。默认开启
+  writerColorEnable: true # 日志文件是否带上颜色。默认false，表示不带颜色
+
+# 平滑重启配置
+graceful: true # 是否开启平滑重启特性，开启时将会在本地增加10000的本地TCP端口用于进程间通信。默认false
+gracefulTimeout: 2 # 父进程在平滑重启后多少秒退出，默认2秒。若请求耗时大于该值，可能会导致请求中断
+gracefulShutdownTimeout: 5 # 关闭Server时如果存在正在执行的HTTP请求，Server等待多少秒才执行强行关闭
+
+# 热重启配置
+hotReload: true # 是否开启热重启特性，开启时将会监听文件变化并自动重启服务。默认false
+hotReloadExclude: ['logs', 'tmp', 'temp'] # 热重启排除的目录
 
 cors:
   allowOrigin: '*'

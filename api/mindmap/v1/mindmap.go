@@ -7,8 +7,8 @@ import (
 // CreateReq 创建思维导图请求
 type CreateReq struct {
 	g.Meta `path:"/create" tags:"MindMap" method:"post" summary:"创建思维导图"`
-	Data   interface{} `json:"data" v:"required" dc:"思维导图数据"`
-	Title  string      `json:"title" v:"required" dc:"标题"`
+	Data   MindElixirData `json:"data" v:"required" dc:"思维导图数据"`
+	Title  string         `json:"title" v:"required" dc:"标题"`
 }
 
 // CreateRes 创建思维导图响应
@@ -30,9 +30,9 @@ type GetListRes struct {
 
 // MindMapItem 思维导图项
 type MindMapItem struct {
-	ID        string      `json:"id" dc:"思维导图UUID"`
-	Title     string      `json:"title" dc:"标题"`
-	Data      interface{} `json:"data" dc:"思维导图数据(JSON格式)"`
-	CreatedAt string      `json:"createdAt" dc:"创建时间(格式: 2006-01-02 15:04:05)"`
-	UpdatedAt string      `json:"updatedAt" dc:"更新时间(格式: 2006-01-02 15:04:05)"`
+	ID        string         `json:"id" dc:"思维导图UUID"`
+	Title     string         `json:"title" dc:"标题"`
+	Data      MindElixirData `json:"data" dc:"思维导图数据"`
+	CreatedAt string         `json:"createdAt" dc:"创建时间(格式: 2006-01-02 15:04:05)"`
+	UpdatedAt string         `json:"updatedAt" dc:"更新时间(格式: 2006-01-02 15:04:05)"`
 }

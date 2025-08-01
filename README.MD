@@ -61,12 +61,58 @@ database:
 
 ### 4. 运行应用
 
+#### 方式一：直接运行
+
 ```bash
 # 安装依赖
 go mod tidy
 
-# 运行应用
+# 直接运行应用
 go run main.go
+```
+
+#### 方式二：使用 Makefile（推荐）
+
+```bash
+# 查看所有可用命令
+make help
+
+# 直接运行应用
+make run
+
+# 后台启动服务
+make start
+
+# 查看服务状态
+make status
+
+# 查看服务日志
+make logs
+
+# 停止服务
+make stop
+
+# 重启服务
+make restart
+
+# 平滑重启服务
+make graceful
+```
+
+#### 方式三：使用重启脚本
+
+```bash
+# 启动服务
+./restart.sh start
+
+# 平滑重启
+./restart.sh graceful
+
+# 查看状态
+./restart.sh status
+
+# 查看日志
+./restart.sh logs
 ```
 
 服务将在 `http://localhost:8000` 启动
@@ -151,3 +197,31 @@ go-mind/
 - 支持 CORS 跨域请求
 - 数据库操作使用 GoFrame 的 ORM
 - JSON 字段存储思维导图数据
+
+## 重启功能说明
+
+### 平滑重启 (Graceful Restart)
+
+- 支持零停机时间重启
+- 新进程启动后，旧进程优雅关闭
+- 不会中断正在处理的请求
+- 使用 `make graceful` 或 `./restart.sh graceful` 触发
+
+### 热重启 (Hot Reload)
+
+- 监听文件变化自动重启
+- 开发模式下自动检测代码变更
+- 排除 `logs`、`tmp`、`temp` 目录
+- 配置文件已启用 `hotReload: true`
+
+### 信号处理
+
+- `SIGTERM`: 优雅停止
+- `SIGUSR1`: 平滑重启
+- `SIGINT`: 强制停止
+
+### 日志管理
+
+- 按日期自动分割日志文件
+- 支持日志压缩和自动清理
+- 日志文件格式: `go-mind-{Y-m-d}.log`

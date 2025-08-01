@@ -1,22 +1,23 @@
 package model
 
 import (
+	v1 "go-mind/api/mindmap/v1"
 	"time"
 )
 
 // MindMap 思维导图模型
 type MindMap struct {
-	Id        string      `json:"id"         description:"UUID"`
-	Title     string      `json:"title"      description:"标题"`
-	Data      interface{} `json:"data"       description:"思维导图数据"`
-	CreatedAt *time.Time  `json:"createdAt"  description:"创建时间"`
-	UpdatedAt *time.Time  `json:"updatedAt"  description:"更新时间"`
+	Id        string            `json:"id"         description:"UUID"`
+	Title     string            `json:"title"      description:"标题"`
+	Data      v1.MindElixirData `json:"data"       description:"思维导图数据"`
+	CreatedAt *time.Time        `json:"createdAt"  description:"创建时间"`
+	UpdatedAt *time.Time        `json:"updatedAt"  description:"更新时间"`
 }
 
 // MindMapCreateInput 创建思维导图输入
 type MindMapCreateInput struct {
-	Title string      `json:"title" v:"required" dc:"标题"`
-	Data  interface{} `json:"data" v:"required" dc:"思维导图数据"`
+	Title string            `json:"title" v:"required" dc:"标题"`
+	Data  v1.MindElixirData `json:"data" v:"required" dc:"思维导图数据"`
 }
 
 // MindMapGetListInput 获取思维导图列表输入

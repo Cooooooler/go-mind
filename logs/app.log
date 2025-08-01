@@ -1,0 +1,21 @@
+2025-08-01T10:46:40.175+08:00 [INFO] pid[98325]: http server started listening on [:8000]
+2025-08-01T10:46:40.175+08:00 [INFO] swagger ui is serving at address: http://127.0.0.1:8000/swagger/
+2025-08-01T10:46:40.175+08:00 [INFO] openapi specification is serving at address: http://127.0.0.1:8000/api.json
+
+  ADDRESS | METHOD |        ROUTE        |                         HANDLER                          |           MIDDLEWARE             
+----------|--------|---------------------|----------------------------------------------------------|----------------------------------
+  :8000   | ALL    | /api.json           | github.com/gogf/gf/v2/net/ghttp.(*Server).openapiSpec    |                                  
+----------|--------|---------------------|----------------------------------------------------------|----------------------------------
+  :8000   | POST   | /api/mindmap/create | go-mind/internal/controller.(*mindMapController).Create  | ghttp.MiddlewareHandlerResponse  
+----------|--------|---------------------|----------------------------------------------------------|----------------------------------
+  :8000   | GET    | /api/mindmap/list   | go-mind/internal/controller.(*mindMapController).GetList | ghttp.MiddlewareHandlerResponse  
+----------|--------|---------------------|----------------------------------------------------------|----------------------------------
+  :8000   | GET    | /hello              | go-mind/internal/controller/hello.(*Controller).Hello    | ghttp.MiddlewareHandlerResponse  
+----------|--------|---------------------|----------------------------------------------------------|----------------------------------
+  :8000   | ALL    | /swagger/*          | github.com/gogf/gf/v2/net/ghttp.(*Server).swaggerUI      | HOOK_BEFORE_SERVE                
+----------|--------|---------------------|----------------------------------------------------------|----------------------------------
+
+2025-08-01T10:47:51.218+08:00 [DEBU] {f0e09bf8af8457186af1df37db9b325c} [  9 ms] [default] [xmind] [rows:5  ] SHOW FULL COLUMNS FROM `mindmap`
+2025-08-01T10:47:51.222+08:00 [DEBU] {f88a34f9af8457186bf1df37a010a219} [  3 ms] [default] [xmind] [rows:1  ] SELECT COUNT(1) FROM `mindmap`
+2025-08-01T10:47:51.225+08:00 [DEBU] {c0907af9af8457186cf1df37faba6392} [  2 ms] [default] [xmind] [rows:1  ] SHOW TABLES
+2025-08-01T10:47:51.226+08:00 [DEBU] {18e69af9af8457186df1df373b9f2d2a} [  1 ms] [default] [xmind] [rows:12 ] SELECT `id`,`title`,`data`,`created_at`,`updated_at` FROM `mindmap` ORDER BY `created_at` desc LIMIT 0,100
