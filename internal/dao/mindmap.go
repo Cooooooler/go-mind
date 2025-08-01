@@ -2,6 +2,7 @@ package dao
 
 import (
 	"context"
+	"fmt"
 	"go-mind/internal/model"
 
 	"github.com/gogf/gf/v2/frame/g"
@@ -84,4 +85,42 @@ func (dao *mindMapDao) GetList(ctx context.Context, in model.MindMapGetListInput
 	}
 
 	return out, nil
+}
+
+// Delete 删除思维导图
+func (dao *mindMapDao) Delete(ctx context.Context, id string) error {
+	g.Log().Infof(ctx, "开始删除思维导图, ID: %s", id)
+
+	// 先检查思维导图是否存在
+	count, err := g.DB().Model("mindmap").Where("id", id).Count()
+	if err != nil {
+		g.Log().Errorf(ctx, "检查思维导图是否存在失败, ID: %s, 错误: %v", id, err)
+		return err
+	}
+
+	if count == 0 {
+		g.Log().Warningf(ctx, "思维导图不存在, ID: %s", id)
+		return fmt.Errorf("思维导图不存在")
+	}
+
+	// 删除思维导图
+	result, err := g.DB().Model("mindmap").Where("id", id).Delete()
+	if err != nil {
+		g.Log().Errorf(ctx, "删除思维导图失败, ID: %s, 错误: %v", id, err)
+		return err
+	}
+
+	affectedRows, err := result.RowsAffected()
+	if err != nil {
+		g.Log().Errorf(ctx, "获取删除影响行数失败, ID: %s, 错误: %v", id, err)
+		return err
+	}
+
+	if affectedRows == 0 {
+		g.Log().Warningf(ctx, "删除思维导图失败, 影响行数为0, ID: %s", id)
+		return fmt.Errorf("删除失败")
+	}
+
+	g.Log().Infof(ctx, "思维导图删除成功, ID: %s, 影响行数: %d", id, affectedRows)
+	return nil
 }

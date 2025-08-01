@@ -66,6 +66,24 @@ func (c *mindMapController) GetList(ctx context.Context, req *v1.GetListReq) (re
 		})
 	}
 
-	g.Log().Infof(ctx, "Controller: 成功返回思维导图列表, 数量: %d", len(res.List))
+	g.Log().Infof(ctx, "Controller层: 成功返回思维导图列表, 数量: %d", len(res.List))
+	return res, nil
+}
+
+// Delete 删除思维导图
+func (c *mindMapController) Delete(ctx context.Context, req *v1.DeleteReq) (res *v1.DeleteRes, err error) {
+	g.Log().Infof(ctx, "Controller层: 收到删除思维导图请求, ID: %s", req.ID)
+
+	res = &v1.DeleteRes{}
+
+	// 调用service删除思维导图
+	err = service.MindMap.Delete(ctx, req.ID)
+	if err != nil {
+		g.Log().Errorf(ctx, "Controller层: 删除思维导图失败, ID: %s, 错误: %v", req.ID, err)
+		return nil, err
+	}
+
+	res.Success = true
+	g.Log().Infof(ctx, "Controller层: 思维导图删除成功, ID: %s", req.ID)
 	return res, nil
 }

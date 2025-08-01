@@ -28,6 +28,17 @@ type GetListRes struct {
 	Total int           `json:"total" dc:"总数"`
 }
 
+// DeleteReq 删除思维导图请求
+type DeleteReq struct {
+	g.Meta `path:"/delete" tags:"MindMap" method:"delete" summary:"删除思维导图"`
+	ID     string `json:"id" v:"required" dc:"思维导图UUID"`
+}
+
+// DeleteRes 删除思维导图响应
+type DeleteRes struct {
+	Success bool `json:"success" dc:"是否删除成功"`
+}
+
 // MindMapItem 思维导图项
 type MindMapItem struct {
 	ID        string         `json:"id" dc:"思维导图UUID"`

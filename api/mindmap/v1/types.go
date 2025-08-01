@@ -57,3 +57,4 @@ type Theme struct {
 	Palette []string          `json:"palette"`
 	CssVar  map[string]string `json:"cssVar"`
 }
+ 

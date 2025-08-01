@@ -34,3 +34,8 @@ type MindMapGetListOutput struct {
 	Page  int       `json:"page" description:"页码"`
 	Size  int       `json:"size" description:"每页大小"`
 }
+
+// MindMapDeleteInput 删除思维导图输入
+type MindMapDeleteInput struct {
+	ID string `json:"id" v:"required" dc:"思维导图UUID"`
+}

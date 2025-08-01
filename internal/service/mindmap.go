@@ -49,3 +49,17 @@ func (s *mindMapService) GetList(ctx context.Context, in model.MindMapGetListInp
 	g.Log().Infof(ctx, "Service层: 成功获取思维导图列表, 总数: %d", out.Total)
 	return out, nil
 }
+
+// Delete 删除思维导图
+func (s *mindMapService) Delete(ctx context.Context, id string) error {
+	g.Log().Infof(ctx, "Service层: 开始删除思维导图, ID: %s", id)
+
+	err := dao.MindMap.Delete(ctx, id)
+	if err != nil {
+		g.Log().Errorf(ctx, "Service层: 删除思维导图失败, ID: %s, 错误: %v", id, err)
+		return err
+	}
+
+	g.Log().Infof(ctx, "Service层: 思维导图删除成功, ID: %s", id)
+	return nil
+}

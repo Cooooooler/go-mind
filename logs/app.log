@@ -1,12 +1,18 @@
-2025-08-01T10:46:40.175+08:00 [INFO] pid[98325]: http server started listening on [:8000]
-2025-08-01T10:46:40.175+08:00 [INFO] swagger ui is serving at address: http://127.0.0.1:8000/swagger/
-2025-08-01T10:46:40.175+08:00 [INFO] openapi specification is serving at address: http://127.0.0.1:8000/api.json
+build: main.go
+go build -o ./main  main.go
+./main 
+build running pid: 81020
+2025-08-01T12:01:37.023+08:00 [INFO] pid[81020]: http server started listening on [:8000]
+2025-08-01T12:01:37.023+08:00 [INFO] {70e87749b68857187fcc35380c59a4e6} swagger ui is serving at address: http://127.0.0.1:8000/swagger/
+2025-08-01T12:01:37.023+08:00 [INFO] {70e87749b68857187fcc35380c59a4e6} openapi specification is serving at address: http://127.0.0.1:8000/api.json
 
   ADDRESS | METHOD |        ROUTE        |                         HANDLER                          |           MIDDLEWARE             
 ----------|--------|---------------------|----------------------------------------------------------|----------------------------------
   :8000   | ALL    | /api.json           | github.com/gogf/gf/v2/net/ghttp.(*Server).openapiSpec    |                                  
 ----------|--------|---------------------|----------------------------------------------------------|----------------------------------
   :8000   | POST   | /api/mindmap/create | go-mind/internal/controller.(*mindMapController).Create  | ghttp.MiddlewareHandlerResponse  
+----------|--------|---------------------|----------------------------------------------------------|----------------------------------
+  :8000   | DELETE | /api/mindmap/delete | go-mind/internal/controller.(*mindMapController).Delete  | ghttp.MiddlewareHandlerResponse  
 ----------|--------|---------------------|----------------------------------------------------------|----------------------------------
   :8000   | GET    | /api/mindmap/list   | go-mind/internal/controller.(*mindMapController).GetList | ghttp.MiddlewareHandlerResponse  
 ----------|--------|---------------------|----------------------------------------------------------|----------------------------------
@@ -15,7 +21,78 @@
   :8000   | ALL    | /swagger/*          | github.com/gogf/gf/v2/net/ghttp.(*Server).swaggerUI      | HOOK_BEFORE_SERVE                
 ----------|--------|---------------------|----------------------------------------------------------|----------------------------------
 
-2025-08-01T10:47:51.218+08:00 [DEBU] {f0e09bf8af8457186af1df37db9b325c} [  9 ms] [default] [xmind] [rows:5  ] SHOW FULL COLUMNS FROM `mindmap`
-2025-08-01T10:47:51.222+08:00 [DEBU] {f88a34f9af8457186bf1df37a010a219} [  3 ms] [default] [xmind] [rows:1  ] SELECT COUNT(1) FROM `mindmap`
-2025-08-01T10:47:51.225+08:00 [DEBU] {c0907af9af8457186cf1df37faba6392} [  2 ms] [default] [xmind] [rows:1  ] SHOW TABLES
-2025-08-01T10:47:51.226+08:00 [DEBU] {18e69af9af8457186df1df373b9f2d2a} [  1 ms] [default] [xmind] [rows:12 ] SELECT `id`,`title`,`data`,`created_at`,`updated_at` FROM `mindmap` ORDER BY `created_at` desc LIMIT 0,100
+2025-08-01T12:01:42.593+08:00 [DEBU] {9892cab9b788571881335c3977dd0693} [ 32 ms] [default] [xmind] [rows:5  ] SHOW FULL COLUMNS FROM `mindmap`
+2025-08-01T12:01:42.598+08:00 [DEBU] {1819b3bbb788571882335c39f3c1bd89} [  5 ms] [default] [xmind] [rows:1  ] SELECT COUNT(1) FROM `mindmap`
+2025-08-01T12:01:42.601+08:00 [DEBU] {60bcfebbb788571883335c3977eda564} [  3 ms] [default] [xmind] [rows:1  ] SHOW TABLES
+2025-08-01T12:01:42.603+08:00 [DEBU] {e03334bcb788571884335c39e3551ab9} [  1 ms] [default] [xmind] [rows:13 ] SELECT `id`,`title`,`data`,`created_at`,`updated_at` FROM `mindmap` ORDER BY `created_at` desc LIMIT 0,100
+2025-08-01T12:01:46.049+08:00 {5815b289b888571885335c3990756478} 200 "DELETE http localhost:8000 /api/mindmap/delete HTTP/1.1" 339.250, ::1, "http://localhost:5173/", "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36", 51, "Validation Failed", ""
+Stack:
+The ID field is required
+2025-08-01T12:01:46.059+08:00 [DEBU] {6031388ab888571887335c390dc3011c} [  1 ms] [default] [xmind] [rows:1  ] SELECT COUNT(1) FROM `mindmap`
+2025-08-01T12:01:46.061+08:00 [DEBU] {b0704e8ab888571888335c39e18d45bd} [  2 ms] [default] [xmind] [rows:13 ] SELECT `id`,`title`,`data`,`created_at`,`updated_at` FROM `mindmap` ORDER BY `created_at` desc LIMIT 0,100
+2025-08-01T12:03:15.737+08:00 [DEBU] {60c8416bcd8857188a335c396f5b7bfc} [  4 ms] [default] [xmind] [rows:1  ] SELECT COUNT(1) FROM `mindmap` WHERE `id`='efd19639-c47c-4502-8192-5af686d206cf'
+2025-08-01T12:03:15.739+08:00 [DEBU] {b845856bcd8857188b335c39d3eccbc4} [  2 ms] [default] [xmind] [rows:1  ] DELETE FROM `mindmap` WHERE `id`='efd19639-c47c-4502-8192-5af686d206cf'
+2025-08-01T12:03:24.949+08:00 [DEBU] {68568990cf8857188d335c392c8ced07} [  1 ms] [default] [xmind] [rows:1  ] SELECT COUNT(1) FROM `mindmap` WHERE `id`='efd19639-c47c-4502-8192-5af686d206cf'
+2025-08-01T12:03:24.950+08:00 {b8498290cf8857188c335c3939b40315} 200 "DELETE http localhost:8000 /api/mindmap/delete HTTP/1.1" 2138.125, ::1, "http://localhost:5173/", "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36", -1, "", ""
+Stack:
+思维导图不存在
+2025-08-01T12:03:30.485+08:00 [DEBU] {18a684dad08857188f335c393955f5e1} [  1 ms] [default] [xmind] [rows:1  ] SELECT COUNT(1) FROM `mindmap`
+2025-08-01T12:03:30.486+08:00 [DEBU] {78548fdad088571890335c3968ae48a2} [  1 ms] [default] [xmind] [rows:12 ] SELECT `id`,`title`,`data`,`created_at`,`updated_at` FROM `mindmap` ORDER BY `created_at` desc LIMIT 0,100
+2025-08-01T12:03:35.819+08:00 [DEBU] {f8d37818d288571892335c39e95ea2e4} [  0 ms] [default] [xmind] [rows:1  ] SELECT COUNT(1) FROM `mindmap` WHERE `id`='efd19639-c47c-4502-8192-5af686d206cf'
+2025-08-01T12:03:35.820+08:00 {a8347218d288571891335c3915b5c8c9} 200 "DELETE http localhost:8000 /api/mindmap/delete HTTP/1.1" 1847.042, ::1, "http://localhost:5173/", "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36", -1, "", ""
+Stack:
+思维导图不存在
+2025-08-01T12:03:37.195+08:00 [DEBU] {a81c7e6ad288571894335c395de46a98} [  0 ms] [default] [xmind] [rows:1  ] SELECT COUNT(1) FROM `mindmap` WHERE `id`='efd19639-c47c-4502-8192-5af686d206cf'
+2025-08-01T12:03:37.196+08:00 {f80f776ad288571893335c399509fd3e} 200 "DELETE http localhost:8000 /api/mindmap/delete HTTP/1.1" 1912.125, ::1, "http://localhost:5173/", "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36", -1, "", ""
+Stack:
+思维导图不存在
+2025-08-01T12:03:44.117+08:00 [DEBU] {38530a07d488571896335c3983480588} [  1 ms] [default] [xmind] [rows:1  ] SELECT COUNT(1) FROM `mindmap` WHERE `id`='5a650689-3b01-43a2-8e20-4c49d8cb8497'
+2025-08-01T12:03:44.118+08:00 [DEBU] {c0a11507d488571897335c3999409fcb} [  1 ms] [default] [xmind] [rows:1  ] DELETE FROM `mindmap` WHERE `id`='5a650689-3b01-43a2-8e20-4c49d8cb8497'
+2025-08-01T12:03:45.581+08:00 [DEBU] {0099595ed488571899335c3913c82a43} [  0 ms] [default] [xmind] [rows:1  ] SELECT COUNT(1) FROM `mindmap` WHERE `id`='e6180024-d420-4bb1-a760-d9d154a03106'
+2025-08-01T12:03:45.582+08:00 [DEBU] {b8f1615ed48857189a335c394d354fdd} [  0 ms] [default] [xmind] [rows:1  ] DELETE FROM `mindmap` WHERE `id`='e6180024-d420-4bb1-a760-d9d154a03106'
+2025-08-01T12:03:47.088+08:00 [DEBU] {f825f8b7d48857189c335c39564c0b93} [  3 ms] [default] [xmind] [rows:1  ] SELECT COUNT(1) FROM `mindmap` WHERE `id`='315b1956-c445-414c-a8c7-4d6e06a25b92'
+2025-08-01T12:03:47.089+08:00 [DEBU] {30382bb8d48857189d335c3973212abc} [  1 ms] [default] [xmind] [rows:1  ] DELETE FROM `mindmap` WHERE `id`='315b1956-c445-414c-a8c7-4d6e06a25b92'
+2025-08-01T12:03:48.400+08:00 [DEBU] {286e5e06d58857189f335c394de0f4cb} [  0 ms] [default] [xmind] [rows:1  ] SELECT COUNT(1) FROM `mindmap` WHERE `id`='458392eb-c6c6-45aa-b67f-d7c7f8e922b1'
+2025-08-01T12:03:48.401+08:00 [DEBU] {90746806d5885718a0335c3981db1306} [  0 ms] [default] [xmind] [rows:1  ] DELETE FROM `mindmap` WHERE `id`='458392eb-c6c6-45aa-b67f-d7c7f8e922b1'
+2025-08-01T12:03:49.535+08:00 [DEBU] {6801014ad5885718a2335c39fbfc3e76} [  0 ms] [default] [xmind] [rows:1  ] SELECT COUNT(1) FROM `mindmap` WHERE `id`='74ce803e-6c28-40e1-8f6c-551486175886'
+2025-08-01T12:03:49.536+08:00 [DEBU] {20d10a4ad5885718a3335c390d4239d7} [  1 ms] [default] [xmind] [rows:1  ] DELETE FROM `mindmap` WHERE `id`='74ce803e-6c28-40e1-8f6c-551486175886'
+2025-08-01T12:03:50.730+08:00 [DEBU] {c8b12b91d5885718a5335c39f9eb1424} [  1 ms] [default] [xmind] [rows:1  ] SELECT COUNT(1) FROM `mindmap` WHERE `id`='7fec7ec2-d31c-4327-aa1f-f37bedc2d873'
+2025-08-01T12:03:50.732+08:00 [DEBU] {40674991d5885718a6335c39527e09ec} [  1 ms] [default] [xmind] [rows:1  ] DELETE FROM `mindmap` WHERE `id`='7fec7ec2-d31c-4327-aa1f-f37bedc2d873'
+2025-08-01T12:03:51.986+08:00 [DEBU] {d0ef0ddcd5885718a8335c399c625ea0} [  1 ms] [default] [xmind] [rows:1  ] SELECT COUNT(1) FROM `mindmap` WHERE `id`='27efad7f-d214-4f16-9439-c065e158d58e'
+2025-08-01T12:03:51.987+08:00 [DEBU] {309819dcd5885718a9335c39e0bd4920} [  1 ms] [default] [xmind] [rows:1  ] DELETE FROM `mindmap` WHERE `id`='27efad7f-d214-4f16-9439-c065e158d58e'
+2025-08-01T12:04:00.506+08:00 [DEBU] {403cead7d7885718ab335c397dc4eb2d} [  1 ms] [default] [xmind] [rows:1  ] SELECT COUNT(1) FROM `mindmap` WHERE `id`='2538ab16-a265-4686-85aa-bf8ad9feb62d'
+2025-08-01T12:04:00.507+08:00 [DEBU] {f024f7d7d7885718ac335c39f98741b7} [  1 ms] [default] [xmind] [rows:1  ] DELETE FROM `mindmap` WHERE `id`='2538ab16-a265-4686-85aa-bf8ad9feb62d'
+2025-08-01T12:04:01.787+08:00 [DEBU] {40104724d8885718ae335c39361a4fd7} [  0 ms] [default] [xmind] [rows:1  ] SELECT COUNT(1) FROM `mindmap` WHERE `id`='ab8e7b11-30bd-4e53-8a6b-db310005ceb1'
+2025-08-01T12:04:01.788+08:00 [DEBU] {e8b85024d8885718af335c395d331324} [  1 ms] [default] [xmind] [rows:1  ] DELETE FROM `mindmap` WHERE `id`='ab8e7b11-30bd-4e53-8a6b-db310005ceb1'
+2025-08-01T12:04:03.147+08:00 [DEBU] {e0a25475d8885718b1335c39f10cd8c9} [  1 ms] [default] [xmind] [rows:1  ] SELECT COUNT(1) FROM `mindmap`
+2025-08-01T12:04:03.148+08:00 [DEBU] {48265f75d8885718b2335c39c6d28b17} [  1 ms] [default] [xmind] [rows:3  ] SELECT `id`,`title`,`data`,`created_at`,`updated_at` FROM `mindmap` ORDER BY `created_at` desc LIMIT 0,100
+2025-08-01T12:04:09.484+08:00 [DEBU] {b8db09efd9885718b4335c39460ebd02} [  1 ms] [default] [xmind] [rows:1  ] SELECT COUNT(1) FROM `mindmap`
+2025-08-01T12:04:09.484+08:00 [DEBU] {b0be15efd9885718b5335c39c5ab2760} [  0 ms] [default] [xmind] [rows:3  ] SELECT `id`,`title`,`data`,`created_at`,`updated_at` FROM `mindmap` ORDER BY `created_at` desc LIMIT 0,100
+2025-08-01T12:04:12.013+08:00 [DEBU] {00580485da885718b7335c398cd92641} [ 14 ms] [default] [xmind] [rows:1  ] SELECT COUNT(1) FROM `mindmap`
+2025-08-01T12:04:12.015+08:00 [DEBU] {d87ddd85da885718b8335c39435a192a} [  1 ms] [default] [xmind] [rows:3  ] SELECT `id`,`title`,`data`,`created_at`,`updated_at` FROM `mindmap` ORDER BY `created_at` desc LIMIT 0,100
+2025-08-01T12:04:15.443+08:00 [DEBU] {30013a52db885718ba335c39dbc4f988} [  1 ms] [default] [xmind] [rows:1  ] SELECT COUNT(1) FROM `mindmap`
+2025-08-01T12:04:15.444+08:00 [DEBU] {00444552db885718bb335c395683af4b} [  1 ms] [default] [xmind] [rows:3  ] SELECT `id`,`title`,`data`,`created_at`,`updated_at` FROM `mindmap` ORDER BY `created_at` desc LIMIT 0,100
+2025-08-01T12:04:17.007+08:00 [DEBU] {b0936fafdb885718bd335c39c33e3a8c} [  1 ms] [default] [xmind] [rows:1  ] SELECT COUNT(1) FROM `mindmap`
+2025-08-01T12:04:17.008+08:00 [DEBU] {30847cafdb885718be335c39dfcdb95c} [  1 ms] [default] [xmind] [rows:3  ] SELECT `id`,`title`,`data`,`created_at`,`updated_at` FROM `mindmap` ORDER BY `created_at` desc LIMIT 0,100
+2025-08-01T12:04:23.399+08:00 [DEBU] {b0b7452cdd885718c0335c391714a169} [  3 ms] [default] [xmind] [rows:1  ] SELECT COUNT(1) FROM `mindmap` WHERE `id`='8ba03c38-fbe2-4154-8f3f-e892b56de392'
+2025-08-01T12:04:23.400+08:00 [DEBU] {a89e7a2cdd885718c1335c392dca61f6} [  1 ms] [default] [xmind] [rows:1  ] DELETE FROM `mindmap` WHERE `id`='8ba03c38-fbe2-4154-8f3f-e892b56de392'
+2025-08-01T12:04:23.411+08:00 [DEBU] {803d2b2ddd885718c3335c39c37e132d} [  0 ms] [default] [xmind] [rows:1  ] SELECT COUNT(1) FROM `mindmap`
+2025-08-01T12:04:23.411+08:00 [DEBU] {b082332ddd885718c4335c397fdab2ed} [  0 ms] [default] [xmind] [rows:2  ] SELECT `id`,`title`,`data`,`created_at`,`updated_at` FROM `mindmap` ORDER BY `created_at` desc LIMIT 0,100
+2025-08-01T12:04:29.062+08:00 [DEBU] {d09cfc7dde885718c6335c398667d288} [  1 ms] [default] [xmind] [rows:1  ] SELECT COUNT(1) FROM `mindmap` WHERE `id`='f3f71887-12af-419b-b8df-36f837894f8d'
+2025-08-01T12:04:29.064+08:00 [DEBU] {f01f097ede885718c7335c39ab12161d} [  2 ms] [default] [xmind] [rows:1  ] DELETE FROM `mindmap` WHERE `id`='f3f71887-12af-419b-b8df-36f837894f8d'
+2025-08-01T12:04:29.075+08:00 [DEBU] {d814c77ede885718c9335c393dcaa207} [  0 ms] [default] [xmind] [rows:1  ] SELECT COUNT(1) FROM `mindmap`
+2025-08-01T12:04:29.076+08:00 [DEBU] {a869cf7ede885718ca335c39fbbabc6d} [  1 ms] [default] [xmind] [rows:1  ] SELECT `id`,`title`,`data`,`created_at`,`updated_at` FROM `mindmap` ORDER BY `created_at` desc LIMIT 0,100
+2025-08-01T12:04:36.040+08:00 [DEBU] {10ede31de0885718cc335c39686f1367} [  1 ms] [default] [xmind] [rows:1  ] SELECT COUNT(1) FROM `mindmap`
+2025-08-01T12:04:36.041+08:00 [DEBU] {50a0f51de0885718cd335c39b060d29f} [  1 ms] [default] [xmind] [rows:1  ] SELECT `id`,`title`,`data`,`created_at`,`updated_at` FROM `mindmap` ORDER BY `created_at` desc LIMIT 0,100
+2025-08-01T12:04:53.778+08:00 [DEBU] {e051b73ee4885718cf335c39657bee46} [  8 ms] [default] [xmind] [rows:1  ] SELECT COUNT(1) FROM `mindmap`
+2025-08-01T12:04:53.780+08:00 [DEBU] {4059453fe4885718d0335c3990919095} [  1 ms] [default] [xmind] [rows:1  ] SELECT `id`,`title`,`data`,`created_at`,`updated_at` FROM `mindmap` ORDER BY `created_at` desc LIMIT 0,100
+2025-08-01T12:04:57.648+08:00 [DEBU] {500ed025e5885718d2335c39ab9e7006} [  1 ms] [default] [xmind] [rows:1  ] SELECT COUNT(1) FROM `mindmap`
+2025-08-01T12:04:57.650+08:00 [DEBU] {d8deef25e5885718d3335c398e829862} [  1 ms] [default] [xmind] [rows:1  ] SELECT `id`,`title`,`data`,`created_at`,`updated_at` FROM `mindmap` ORDER BY `created_at` desc LIMIT 0,100
+2025-08-01T12:05:12.941+08:00 [DEBU] {98bb65b5e8885718d5335c39655045c6} [  0 ms] [default] [xmind] [rows:1  ] SELECT COUNT(1) FROM `mindmap`
+2025-08-01T12:05:12.941+08:00 [DEBU] {e8546db5e8885718d6335c3953c5e1b8} [  0 ms] [default] [xmind] [rows:1  ] SELECT `id`,`title`,`data`,`created_at`,`updated_at` FROM `mindmap` ORDER BY `created_at` desc LIMIT 0,100
+2025-08-01T12:05:14.854+08:00 [DEBU] {30c97027e9885718d8335c391a3c6d2a} [  0 ms] [default] [xmind] [rows:1  ] SELECT COUNT(1) FROM `mindmap`
+2025-08-01T12:05:14.855+08:00 [DEBU] {b04e7a27e9885718d9335c39a1d56aa3} [  0 ms] [default] [xmind] [rows:1  ] SELECT `id`,`title`,`data`,`created_at`,`updated_at` FROM `mindmap` ORDER BY `created_at` desc LIMIT 0,100
+2025-08-01T12:05:30.408+08:00 [DEBU] {e81d12c6ec885718db335c39b9f3fa5d} [  8 ms] [default] [xmind] [rows:1  ] SELECT COUNT(1) FROM `mindmap`
+2025-08-01T12:05:30.411+08:00 [DEBU] {68af96c6ec885718dc335c392e328926} [  2 ms] [default] [xmind] [rows:1  ] SELECT `id`,`title`,`data`,`created_at`,`updated_at` FROM `mindmap` ORDER BY `created_at` desc LIMIT 0,100
+2025-08-01T12:06:05.110+08:00 [DEBU] {c04b9fdaf4885718de335c3938b0ab23} [  5 ms] [default] [xmind] [rows:1  ] SELECT COUNT(1) FROM `mindmap`
+2025-08-01T12:06:05.112+08:00 [DEBU] {c011fcdaf4885718df335c393446e4f4} [  1 ms] [default] [xmind] [rows:1  ] SELECT `id`,`title`,`data`,`created_at`,`updated_at` FROM `mindmap` ORDER BY `created_at` desc LIMIT 0,100
